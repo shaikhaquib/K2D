@@ -115,6 +115,7 @@
                 android:layout_weight="8"
                 android:background="#00000000"
                 android:maxLines="1"
+                android:inputType="textPassword"
                 android:singleLine="true"
                 android:paddingLeft="8dp"/>
 
