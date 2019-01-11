@@ -100,4 +100,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void newuser(View view) {
+        startActivity(new Intent(getApplicationContext(),CustomerRegistration.class));
+    }
 }
