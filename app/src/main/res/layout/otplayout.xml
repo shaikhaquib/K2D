@@ -49,7 +49,7 @@
         android:padding="35dp"
         app:pinAnimationType="popIn"
         android:id="@+id/pinView"
-        app:pinBackgroundDrawable="@drawable/square_border"
+        app:pinBackgroundDrawable="@drawable/border"
         app:pinBackgroundIsSquare="false"
         app:pinTextBottomPadding="12dp" />
 
@@ -63,8 +63,9 @@
         android:layout_marginBottom="96dp"
         android:background="@drawable/background"
         android:gravity="center"
-        android:onClick="DoLogin"
-        android:text="REGISTER"
+        android:id="@+id/chkotp"
+        android:onClick="CheckOTP"
+        android:text="SUBMIT"
         android:textColor="@color/white" />
 
     <LinearLayout
@@ -74,17 +75,19 @@
         android:layout_marginBottom="16dp"
         android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="16sp"
-        android:text="Didn't Receive OTP ?"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="@color/colorPrimary"
-        android:text="Resend Code"/>
-</LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:text="Didn't Receive OTP ?"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/resendlink"
+            android:onClick="ReSendOTP"
+            android:textColor="@color/colorPrimary"
+            android:text="Resend Code"/>
+    </LinearLayout>
 </RelativeLayout>

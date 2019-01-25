@@ -13,6 +13,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="34dp"
+        android:id="@+id/loginAsGuest"
         android:gravity="center_vertical|center"
         android:text=" Login as a guest user ?"
         android:textStyle="italic|normal" />
@@ -26,7 +27,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
         android:src="@drawable/ic_kirana2door_ui_ux"
-       />
+        android:textColor="#9e9e9e" />
 
     <Button
         android:layout_width="180dp"
@@ -136,14 +137,15 @@
                 android:layout_weight="1"
                 android:layout_gravity="center"
                 android:gravity="center_vertical"
+                android:onClick="newUser"
                 android:textStyle="italic|normal"
-                android:onClick="newuser"
                 android:textColor="#9e9e9e"
                 android:text="New User ?"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="forgotPassword"
                 android:textStyle="italic|normal"
                 android:textColor="#9e9e9e"
                 android:gravity="end|center_vertical"

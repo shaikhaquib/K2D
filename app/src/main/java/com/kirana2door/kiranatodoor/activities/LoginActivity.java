@@ -3,6 +3,7 @@ package com.kirana2door.kiranatodoor.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -80,14 +81,19 @@ public class LoginActivity extends AppCompatActivity {
                 LoginResponse loginResponse = response.body();
 
                 if (!loginResponse.isError()) {
+                    // Log.d("message",loginResponse.getMessage());
+                    if(loginResponse.getMessage().equalsIgnoreCase("SUCCESS")) {
+                        SharedPrefManager.getInstance(LoginActivity.this)
+                                .saveUser(loginResponse.getUser());
 
-                    SharedPrefManager.getInstance(LoginActivity.this)
-                            .saveUser(loginResponse.getUser());
-
-                    Intent intent = new Intent(LoginActivity.this, Home.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-
+                        Intent intent = new Intent(LoginActivity.this, Home.class);
+                        //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                    }else{
+                        Intent intent = new Intent(LoginActivity.this, OTPVerification.class);
+                        intent.putExtra("emailid",loginResponse.getUser().getEmail());
+                        startActivity(intent);
+                    }
 
                 } else {
                     Toast.makeText(LoginActivity.this, loginResponse.getMessage(), Toast.LENGTH_LONG).show();
@@ -101,7 +107,11 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void newuser(View view) {
+    public void newUser(View view) {
         startActivity(new Intent(getApplicationContext(),CustomerRegistration.class));
+    }
+
+    public void forgotPassword(View view) {
+        startActivity(new Intent(getApplicationContext(),ForgotPassword.class));
     }
 }
