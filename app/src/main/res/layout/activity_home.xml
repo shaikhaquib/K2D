@@ -31,7 +31,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal|bottom"
         android:layout_marginBottom="18dp"
-        android:src="@drawable/ic_kirana2door_icons_cart_grey"
+        android:src="@drawable/cart_selector"
         app:backgroundTint="#EDE7F6"
         android:layout_alignParentBottom="true"
         app:elevation="@dimen/padding_10"

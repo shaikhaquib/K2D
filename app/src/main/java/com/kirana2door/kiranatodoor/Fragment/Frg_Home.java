@@ -27,7 +27,7 @@ public class Frg_Home extends Fragment {
 
     ViewPager viewPager,manualSlider;
     LinearLayout sliderDotspanel;
-    RecyclerView rvOfferproduct;
+    RecyclerView rvOfferproduct,rvCat;
     private int dotscount;
     private ImageView[] dots;
     View parentLayout;
@@ -47,7 +47,7 @@ public class Frg_Home extends Fragment {
             "Oraganic Besan",
             "Royal Organic",
             "Pure Ghee"
-    };
+    },prd_Count = {"20","35","16","56","05","10"};
 
 
     int currentPage = 0;
@@ -73,6 +73,8 @@ public class Frg_Home extends Fragment {
         viewPager = view.findViewById(R.id.catviewPager);
         manualSlider = view.findViewById(R.id.manualSlider);
         rvOfferproduct = view.findViewById(R.id.rvOfferproduct);
+        rvCat = view.findViewById(R.id.rvCat);
+        rvCat.setLayoutManager(new LinearLayoutManager(getActivity()));
         manualSlider.setPageMargin(-20);
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getActivity(),imagearray,0);
 
@@ -111,6 +113,44 @@ public class Frg_Home extends Fragment {
 
                     img = itemView.findViewById(R.id.prd_img);
                     prdname = itemView.findViewById(R.id.prd_name);
+
+
+                }
+            } }
+        );
+        rvCat.setAdapter(new RecyclerView.Adapter() {
+            @NonNull
+            @Override
+            public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+                View view=LayoutInflater.from(getActivity()).inflate(R.layout.layout_category, viewGroup,false);
+                Holder holder=new Holder(view);
+                return holder;
+            }
+
+            @Override
+            public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+                final Holder myHolder= (Holder) viewHolder;
+                Glide.with(getActivity()).load(prd_img[i]).into(myHolder.img);
+                myHolder.prdname.setText(prd_names[i]);
+                myHolder.count.setText(prd_Count[i]);
+
+
+            }
+
+            @Override
+            public int getItemCount() {
+                return prd_img.length;
+            }
+            class Holder extends RecyclerView.ViewHolder {
+                ImageView img;
+                TextView prdname,count;
+                public Holder(@NonNull View itemView) {
+                    super(itemView);
+
+
+                    img = itemView.findViewById(R.id.cat_img);
+                    prdname = itemView.findViewById(R.id.cat_name);
+                    count = itemView.findViewById(R.id.cat_count);
 
 
                 }
@@ -160,12 +200,12 @@ public class Frg_Home extends Fragment {
             @Override
             public void onPageSelected(int position) {
 
-                for(int i = 0; i< dotscount; i++){
+             /*   for(int i = 0; i< dotscount; i++){
                     dots[i].setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.nonactive_dot));
                 }
 
                 dots[position].setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.active_dot));
-
+*/
             }
 
             @Override
