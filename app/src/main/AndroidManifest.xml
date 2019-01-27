@@ -23,13 +23,15 @@
             android:name=".activities.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+        <activity android:name=".activities.Home" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.Home" />
         <activity android:name=".activities.CustomerRegistration" />
         <activity android:name=".activities.OTPVerification" />
         <activity android:name=".activities.ForgotPassword" />
