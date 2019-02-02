@@ -73,7 +73,9 @@ public class Frg_Home extends Fragment {
         viewPager = view.findViewById(R.id.catviewPager);
         manualSlider = view.findViewById(R.id.manualSlider);
         rvOfferproduct = view.findViewById(R.id.rvOfferproduct);
+        rvOfferproduct.setNestedScrollingEnabled(false);
         rvCat = view.findViewById(R.id.rvCat);
+        rvCat.setNestedScrollingEnabled(false);
         rvCat.setLayoutManager(new LinearLayoutManager(getActivity()));
         manualSlider.setPageMargin(-20);
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getActivity(),imagearray,0);

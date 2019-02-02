@@ -9,7 +9,14 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-    <android.support.v4.view.ViewPager
+        <include
+            android:id="@+id/custom_action_bar"
+            layout="@layout/custom_action_bar"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent" />
+
+
+        <android.support.v4.view.ViewPager
         android:id="@+id/catviewPager"
         android:layout_width="wrap_content"
         android:layout_margin="10dp"

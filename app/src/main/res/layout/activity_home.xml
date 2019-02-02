@@ -7,11 +7,6 @@
     app:layout_insetEdge="bottom"
     tools:context=".activities.Home">
 
-    <include
-        android:id="@+id/custom_action_bar"
-        layout="@layout/custom_action_bar"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent" />
 
     <FrameLayout
         android:id="@+id/fragment_container"

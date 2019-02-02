@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_16"
+            android:visibility="gone"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="YOUR CART"
+                android:gravity="center_vertical|center"
+                android:layout_margin="@dimen/dimen_16"
+                android:fontFamily="@font/maiandra_gd_regular"
+                android:textSize="@dimen/font_20sp"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_cart"
+                android:layout_width="match_parent"
+                android:layout_gravity="center_vertical|center"
+                android:layout_height="wrap_content"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_16">
+
+
+                <Button
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:onClick="DoLogin"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/background"
+                    android:text="ADD MORE"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:onClick="DoLogin"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/background"
+                    android:text="Login"
+                    android:visibility="gone"
+                    android:textColor="@color/white" />
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical|center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="70sp"
+                android:textColor="@color/colorPrimary"
+                android:text="?"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="-16dp"
+                android:src="@drawable/ic_clipboard" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/maiandra_gd_regular"
+                android:textSize="25sp"
+                android:textColor="#000"
+                android:layout_marginTop="8dp"
+                android:text="YOUR CART IS "/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/maiandra_gd_regular"
+                android:layout_marginTop="-8dp"
+                android:textSize="45sp"
+                android:gravity="center"
+                android:textColor="@color/colorPrimary"
+                android:text="EMPTY !"/>
+
+            <Button
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:onClick="DoLogin"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/background"
+                android:text="ADD ITEM"
+                android:layout_marginTop="@dimen/dimen_16"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
