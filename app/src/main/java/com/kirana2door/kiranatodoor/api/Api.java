@@ -3,6 +3,8 @@ package com.kirana2door.kiranatodoor.api;
 import com.kirana2door.kiranatodoor.activities.CustomerRegistration;
 import com.kirana2door.kiranatodoor.models.DefaultResponse;
 import com.kirana2door.kiranatodoor.models.LoginResponse;
+import com.kirana2door.kiranatodoor.models.MainPageResponse;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -64,4 +66,10 @@ public interface Api {
             @Field("contact") String phno
     );
 
+    @FormUrlEncoded
+    @POST("mainpagealldata")
+    Call<MainPageResponse> mainPageAllData(
+            @Field("custid") String custid,
+            @Field("stcode") String shopid
+    );
 }
