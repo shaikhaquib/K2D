@@ -1,6 +1,8 @@
 package com.kirana2door.kiranatodoor.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
@@ -16,6 +18,7 @@ import com.kirana2door.kiranatodoor.Fragment.Frg_Home;
 import com.kirana2door.kiranatodoor.Fragment.Frg_Menu;
 import com.kirana2door.kiranatodoor.Fragment.Frg_Notification;
 import com.kirana2door.kiranatodoor.Fragment.Frg_Store;
+import com.kirana2door.kiranatodoor.Global;
 import com.kirana2door.kiranatodoor.R;
 
 public class Home extends AppCompatActivity {
@@ -30,7 +33,8 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         getSupportActionBar().hide();
-
+        SharedPreferences mPrefs = getSharedPreferences("my_shared_preff",0);
+        Global.customer_id = mPrefs.getString("id", "");
         bottomNavigationView = findViewById(R.id.navigation);
         fab = findViewById(R.id.floating_button);
 

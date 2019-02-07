@@ -1,5 +1,7 @@
 package com.kirana2door.kiranatodoor.Fragment;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -15,13 +17,26 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.kirana2door.kiranatodoor.Global;
 import com.kirana2door.kiranatodoor.R;
 import com.kirana2door.kiranatodoor.ViewPagerAdapter;
+import com.kirana2door.kiranatodoor.activities.Product_page;
+import com.kirana2door.kiranatodoor.api.RetrofitClient;
+import com.kirana2door.kiranatodoor.models.MainPageResponse;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Frg_Home extends Fragment {
 
@@ -135,6 +150,13 @@ public class Frg_Home extends Fragment {
                 Glide.with(getActivity()).load(prd_img[i]).into(myHolder.img);
                 myHolder.prdname.setText(prd_names[i]);
                 myHolder.count.setText(prd_Count[i]);
+                myHolder.itemView.setTag(i);
+                myHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(getActivity(), Product_page.class));
+                    }
+                });
 
 
             }
@@ -159,7 +181,36 @@ public class Frg_Home extends Fragment {
             } }
         );
 
+        getData();
+
         return view ;
+    }
+
+    private void getData() {
+        //data variables call
+
+
+//webapi call
+        Call<MainPageResponse> call = RetrofitClient
+                .getInstance().getApi().mainPageAllData(Global.customer_id, "0");
+        call.enqueue(new Callback<MainPageResponse>() {
+            @Override
+            public void onResponse(Call<MainPageResponse> call, Response<MainPageResponse> response) {
+                MainPageResponse mpgResponse = response.body();
+
+                if (!mpgResponse.isError()) {
+
+
+                } else {
+                    Toast.makeText(getActivity(), mpgResponse.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<MainPageResponse> call, Throwable t) {
+                Toast.makeText(getActivity(), "Failed to process your request !", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
 

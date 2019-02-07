@@ -18,19 +18,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.ChangePassword"></activity>
+        <activity android:name=".activities.Product_page"></activity>
+        <activity android:name=".activities.ChangePassword" />
         <activity
             android:name=".activities.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        </activity>
-        <activity android:name=".activities.Home" >
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".activities.Home">
         </activity>
         <activity android:name=".activities.CustomerRegistration" />
         <activity android:name=".activities.OTPVerification" />
