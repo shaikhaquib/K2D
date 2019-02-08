@@ -9,23 +9,19 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.kirana2door.kiranatodoor.models.BannerItem;
 import com.kirana2door.kiranatodoor.models.CatbanItem;
 
 import java.util.List;
 
-
-/**
- * Created by Sanket on 27-Feb-17.
- */
-
-public class ViewPagerAdapter extends PagerAdapter {
+public class BannerSlider  extends PagerAdapter {
 
     private Context context;
     private LayoutInflater layoutInflater;
-    private List<CatbanItem>  images ;
+    private List<BannerItem> images ;
     int type ;
 
-    public ViewPagerAdapter(Context context, List<CatbanItem> img_array, int i) {
+    public BannerSlider(Context context, List<BannerItem> img_array, int i) {
         this.context = context;
         this.images=img_array;
         this.type = i;
@@ -52,7 +48,7 @@ public class ViewPagerAdapter extends PagerAdapter {
             ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
             //imageView.setImageResource(images[position]);
 
-            Glide.with(context).load(images.get(position).getOffpicPath()).into(imageView);
+            Glide.with(context).load(images.get(position).getBannerImg()).into(imageView);
 
 
             view.setOnClickListener(new View.OnClickListener() {
@@ -68,11 +64,11 @@ public class ViewPagerAdapter extends PagerAdapter {
         }else if (type == 1) {
 
             layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-             view = layoutInflater.inflate(R.layout.custom_layout, null);
+            view = layoutInflater.inflate(R.layout.custom_layout, null);
             ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
             //imageView.setImageResource(images[position]);
 
-            Glide.with(context).load(images.get(position).getOffpicPath()).into(imageView);
+            Glide.with(context).load(images.get(position).getBannerImg()).into(imageView);
 
 
             view.setOnClickListener(new View.OnClickListener() {

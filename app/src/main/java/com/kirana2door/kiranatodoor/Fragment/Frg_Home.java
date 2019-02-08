@@ -19,24 +19,41 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
+import com.kirana2door.kiranatodoor.BannerSlider;
 import com.kirana2door.kiranatodoor.Global;
 import com.kirana2door.kiranatodoor.R;
 import com.kirana2door.kiranatodoor.ViewPagerAdapter;
 import com.kirana2door.kiranatodoor.activities.Product_page;
+import com.kirana2door.kiranatodoor.api.Api;
+import com.kirana2door.kiranatodoor.api.AppController;
 import com.kirana2door.kiranatodoor.api.RetrofitClient;
+import com.kirana2door.kiranatodoor.models.BannerItem;
+import com.kirana2door.kiranatodoor.models.CatItem;
+import com.kirana2door.kiranatodoor.models.CatbanItem;
 import com.kirana2door.kiranatodoor.models.MainPageResponse;
+import com.kirana2door.kiranatodoor.models.MainResponse;
+import com.kirana2door.kiranatodoor.models.ProdbanItem;
+import com.kirana2door.kiranatodoor.models.StockistItem;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Response;
 
 public class Frg_Home extends Fragment {
 
@@ -46,23 +63,12 @@ public class Frg_Home extends Fragment {
     private int dotscount;
     private ImageView[] dots;
     View parentLayout;
+    List<BannerItem> bannerItems = new ArrayList<>();
+    List<CatbanItem> catbanItems = new ArrayList<>();
+    List<CatItem> catItems = new ArrayList<>();
+    List<ProdbanItem> prodbanItems = new ArrayList<>();
+    List<StockistItem> stockistItems = new ArrayList<>();
 
-    String[] prd_img = {
-            "https://www.bigbasket.com/media/uploads/p/s/40112512_2-bb-royal-medjool-dates.jpg",
-            "https://www.bigbasket.com/media/uploads/p/s/40072455_5-bb-royal-organic-kabuli-chanachanna.jpg",
-            "https://www.bigbasket.com/media/uploads/p/s/40112523_2-bb-royal-dried-fruit-blueberries.jpg",
-            "https://www.bigbasket.com/media/uploads/p/s/40072463_6-bb-royal-organic-besan-flour.jpg",
-            "https://www.bigbasket.com/media/uploads/p/s/40072465_6-bb-royal-organic-brown-chanachanna-brown.jpg",
-            "https://www.bigbasket.com/media/uploads/p/s/40026269_1-milkfood-pure-ghee.jpg"
-    },
-    prd_names = {
-            "Royal Dates",
-            "Kabuli chana",
-            "Blue Berries",
-            "Oraganic Besan",
-            "Royal Organic",
-            "Pure Ghee"
-    },prd_Count = {"20","35","16","56","05","10"};
 
 
     int currentPage = 0;
@@ -70,14 +76,6 @@ public class Frg_Home extends Fragment {
     final long DELAY_MS = 500;//delay in milliseconds before task is to be executed
     final long PERIOD_MS = 3000;
 
-
-    String[] imagearray = {
-            "https://www.bigbasket.com/media/customPage/b01eee88-e6bc-410e-993c-dedd012cf04b/a0c46e89-2c57-47ee-9b4b-5e5d7b102bdc/b4ab9e83-a7e2-4e26-9547-3dfe310c212a/All_70p_Deal_Paytm_offer_DT_4_1130x400_19thJan.jpg",
-            "https://www.bigbasket.com/media/customPage/b01eee88-e6bc-410e-993c-dedd012cf04b/a0c46e89-2c57-47ee-9b4b-5e5d7b102bdc/b4ab9e83-a7e2-4e26-9547-3dfe310c212a/T1_All_GoodDiet_DT_2_1130x400_12thJan.jpg",
-            "https://www.bigbasket.com/media/customPage/b01eee88-e6bc-410e-993c-dedd012cf04b/a0c46e89-2c57-47ee-9b4b-5e5d7b102bdc/b4ab9e83-a7e2-4e26-9547-3dfe310c212a/T1_All_GoodDiet_DT_2_1130x400_12thJan.jpg",
-            "https://www.bigbasket.com/media/customPage/b01eee88-e6bc-410e-993c-dedd012cf04b/a0c46e89-2c57-47ee-9b4b-5e5d7b102bdc/b4ab9e83-a7e2-4e26-9547-3dfe310c212a/All_bbStarbigsave_DT_1_1130x400_12thJan.jpg",
-            "https://www.bigbasket.com/media/customPage/b01eee88-e6bc-410e-993c-dedd012cf04b/a0c46e89-2c57-47ee-9b4b-5e5d7b102bdc/4a1760bc-0ec8-4300-a250-4993235350ab/T1_All_HealthStore_DT_1_560x378_16thJan.jpg",
-            "https://www.bigbasket.com/media/uploads/banner_images/T1_All_RefernEarn_DT_1_1130x400_12thjan.jpg"} ;
 
     @Nullable
     @Override
@@ -93,10 +91,7 @@ public class Frg_Home extends Fragment {
         rvCat.setNestedScrollingEnabled(false);
         rvCat.setLayoutManager(new LinearLayoutManager(getActivity()));
         manualSlider.setPageMargin(-20);
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getActivity(),imagearray,0);
 
-        manualSlider.setAdapter(viewPagerAdapter);
-        slider();
 
         rvOfferproduct.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayout.HORIZONTAL,true));
         rvOfferproduct.setAdapter(new RecyclerView.Adapter() {
@@ -111,15 +106,16 @@ public class Frg_Home extends Fragment {
             @Override
             public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
                 final Holder myHolder= (Holder) viewHolder;
-                Glide.with(getActivity()).load(prd_img[i]).into(myHolder.img);
-                myHolder.prdname.setText(prd_names[i]);
+                final ProdbanItem model = prodbanItems.get(i);
+                Glide.with(getActivity()).load(model.getOffpicPath()).into(myHolder.img);
+                myHolder.prdname.setText(model.getCreatedBy());
 
 
             }
 
             @Override
             public int getItemCount() {
-                return prd_img.length;
+                return prodbanItems.size();
             }
             class Holder extends RecyclerView.ViewHolder {
                 ImageView img;
@@ -147,14 +143,15 @@ public class Frg_Home extends Fragment {
             @Override
             public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
                 final Holder myHolder= (Holder) viewHolder;
-                Glide.with(getActivity()).load(prd_img[i]).into(myHolder.img);
-                myHolder.prdname.setText(prd_names[i]);
-                myHolder.count.setText(prd_Count[i]);
+                final CatItem model = catItems.get(i);
+                Glide.with(getActivity()).load(model.getCategoryImg()).into(myHolder.img);
+                myHolder.prdname.setText(model.getCategoryName());
+                myHolder.count.setText(model.getCategoryId());
                 myHolder.itemView.setTag(i);
                 myHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(getActivity(), Product_page.class));
+                        startActivity(new Intent(getActivity(), Product_page.class).putExtra("CatID",model.getCategoryId()));
                     }
                 });
 
@@ -163,7 +160,7 @@ public class Frg_Home extends Fragment {
 
             @Override
             public int getItemCount() {
-                return prd_img.length;
+                return catItems.size();
             }
             class Holder extends RecyclerView.ViewHolder {
                 ImageView img;
@@ -190,8 +187,43 @@ public class Frg_Home extends Fragment {
         //data variables call
 
 
+        StringRequest stringRequest = new StringRequest(StringRequest.Method.POST, "https://dev.kirana2door.com/androidapi/mainpagealldata", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Gson gson = new Gson();
+                MainResponse ReMainResponse = gson.fromJson(response, MainResponse.class);
+                bannerItems=ReMainResponse.getBanner();
+                catbanItems=ReMainResponse.getCatban();
+                catItems=ReMainResponse.getCat();
+                prodbanItems=ReMainResponse.getProdban();
+                stockistItems=ReMainResponse.getStockist();
+
+                ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getActivity(),catbanItems,0);
+                manualSlider.setAdapter(viewPagerAdapter);
+                slider();
+                rvOfferproduct.getAdapter().notifyDataSetChanged();
+                rvCat.getAdapter().notifyDataSetChanged();
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map <String,String> param = new HashMap<String,String>();
+                param.put("custid",Global.customer_id);
+                param.put("stcode","0");
+                return param;
+            }
+        };
+        AppController.getInstance().addToRequestQueue(stringRequest);
+
+
 //webapi call
-        Call<MainPageResponse> call = RetrofitClient
+   /*     Call<MainPageResponse> call = RetrofitClient
                 .getInstance().getApi().mainPageAllData(Global.customer_id, "0");
         call.enqueue(new Callback<MainPageResponse>() {
             @Override
@@ -210,62 +242,14 @@ public class Frg_Home extends Fragment {
             public void onFailure(Call<MainPageResponse> call, Throwable t) {
                 Toast.makeText(getActivity(), "Failed to process your request !", Toast.LENGTH_LONG).show();
             }
-        });
+        });*/
     }
 
 
     public void slider(){
 
-
-        if (imagearray.length<2){
-
-            sliderDotspanel.setVisibility(View.GONE );
-        }
-
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getActivity(),imagearray,1);
-
-        viewPager.setAdapter(viewPagerAdapter);
-
-        dotscount = viewPagerAdapter.getCount();
-        dots = new ImageView[dotscount];
-
-        for(int i = 0; i < dotscount; i++){
-
-            dots[i] = new ImageView(getActivity());
-            dots[i].setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.nonactive_dot));
-
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-
-            params.setMargins(8, 0, 8, 0);
-
-            sliderDotspanel.addView(dots[i], params);
-
-        }
-
-//        dots[0].setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.active_dot));
-
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-
-             /*   for(int i = 0; i< dotscount; i++){
-                    dots[i].setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.nonactive_dot));
-                }
-
-                dots[position].setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.active_dot));
-*/
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
+              BannerSlider viewPagerAdapter = new BannerSlider(getActivity(),bannerItems,1);
+              viewPager.setAdapter(viewPagerAdapter);
 
         final Handler handler = new Handler();
         final Runnable Update = new Runnable() {

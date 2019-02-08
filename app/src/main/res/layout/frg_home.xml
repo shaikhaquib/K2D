@@ -20,7 +20,6 @@
         android:id="@+id/catviewPager"
         android:layout_width="wrap_content"
         android:layout_margin="10dp"
-        android:background="@color/white"
         android:layout_height="150dp"/>
 
     <LinearLayout
@@ -31,17 +30,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/manualSlider"
-        android:layout_width="wrap_content"
-        android:layout_height="150dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="8dp"
-        android:clipToPadding="false"
-        android:gravity="center"
-        android:background="@color/white"
-        android:paddingLeft="36dp"
-        android:paddingRight="36dp"/>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/manualSlider"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="8dp"
+            android:clipToPadding="false"
+            android:gravity="center"
+            android:paddingLeft="36dp"
+            android:paddingRight="36dp" />
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -62,14 +60,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/maiandra_gd_regular"
-                    android:textSize="16dp"
+                    android:textSize="14sp"
                     android:layout_margin="@dimen/padding_10"
                     android:text="OFFER ON PRODUCT"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/maiandra_gd_regular"
-                    android:textSize="16dp"
+                    android:textSize="12sp"
                     android:layout_margin="@dimen/padding_10"
                     android:textColor="@color/colorPrimary"
                     android:layout_alignParentRight="true"

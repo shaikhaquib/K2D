@@ -1,15 +1,12 @@
 package com.kirana2door.kiranatodoor.activities;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.provider.Settings;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -48,7 +45,6 @@ public class Home extends AppCompatActivity {
                 loadFragment(fragment);
             }
         });
-
         fragment = new Frg_Home();
         loadFragment(fragment);
 
