@@ -19,7 +19,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activities.Product_page"></activity>
+        <activity android:name=".activities.CartProductList"></activity>
+        <activity android:name=".activities.Product_page" />
         <activity android:name=".activities.ChangePassword" />
         <activity
             android:name=".activities.LoginActivity"
@@ -31,8 +32,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.Home">
-        </activity>
+        <activity android:name=".activities.Home"></activity>
         <activity android:name=".activities.CustomerRegistration" />
         <activity android:name=".activities.OTPVerification" />
         <activity android:name=".activities.ForgotPassword" />

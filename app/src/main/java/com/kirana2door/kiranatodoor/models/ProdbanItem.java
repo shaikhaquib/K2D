@@ -31,6 +31,17 @@ public class ProdbanItem{
 	@SerializedName("status")
 	private String status;
 
+	@SerializedName("product_name")
+	private String product_name;
+
+	public String getProduct_name() {
+		return product_name;
+	}
+
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
+	}
+
 	public void setShopId(String shopId){
 		this.shopId = shopId;
 	}
@@ -103,6 +114,7 @@ public class ProdbanItem{
 		return status;
 	}
 
+
 	@Override
  	public String toString(){
 		return 
@@ -116,6 +128,7 @@ public class ProdbanItem{
 			",offproductid = '" + offproductid + '\'' + 
 			",created_by = '" + createdBy + '\'' + 
 			",status = '" + status + '\'' + 
+			",product_name = '" + product_name + '\'' +
 			"}";
 		}
 }

@@ -1,4 +1,4 @@
-package com.kirana2door.kiranatodoor;
+package com.kirana2door.kiranatodoor.other;
 
 public class DataVar {
     

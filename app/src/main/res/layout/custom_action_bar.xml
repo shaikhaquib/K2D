@@ -12,7 +12,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_marginLeft="18dp"
         android:src="@drawable/ic_kirana2door_icons_green" />
 
@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_marginRight="15dp"
         android:src="@drawable/ic_kirana2door_icons_search" />
 
@@ -29,7 +29,7 @@
         android:layout_height="40dp"
         android:layout_alignParentRight="true"
         android:layout_marginRight="45dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="7dp"
         android:adjustViewBounds="true"
         android:src="@drawable/ic_more" />
 
@@ -37,8 +37,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="80dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginLeft="90dp"
         android:fontFamily="@font/maiandra_gd_regular"
         android:text="Timing 9:00 am to 9:00 pm"
         android:textColor="@color/white"

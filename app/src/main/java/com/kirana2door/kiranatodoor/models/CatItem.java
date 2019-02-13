@@ -31,6 +31,17 @@ public class CatItem{
 	@SerializedName("status")
 	private String status;
 
+	@SerializedName("cnt")
+	private String cnt;
+
+	public String getCnt() {
+		return cnt;
+	}
+
+	public void setCnt(String cnt) {
+		this.cnt = cnt;
+	}
+
 	public void setShopId(String shopId){
 		this.shopId = shopId;
 	}
@@ -116,6 +127,7 @@ public class CatItem{
 			",created_by = '" + createdBy + '\'' + 
 			",category_img = '" + categoryImg + '\'' + 
 			",status = '" + status + '\'' + 
+			",cnt = '" + cnt + '\'' +
 			"}";
 		}
 }

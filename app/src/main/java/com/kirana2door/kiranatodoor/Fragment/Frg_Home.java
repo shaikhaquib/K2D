@@ -108,7 +108,7 @@ public class Frg_Home extends Fragment {
                 final Holder myHolder= (Holder) viewHolder;
                 final ProdbanItem model = prodbanItems.get(i);
                 Glide.with(getActivity()).load(model.getOffpicPath()).into(myHolder.img);
-                myHolder.prdname.setText(model.getCreatedBy());
+                myHolder.prdname.setText(model.getProduct_name());
 
 
             }
@@ -146,7 +146,7 @@ public class Frg_Home extends Fragment {
                 final CatItem model = catItems.get(i);
                 Glide.with(getActivity()).load(model.getCategoryImg()).into(myHolder.img);
                 myHolder.prdname.setText(model.getCategoryName());
-                myHolder.count.setText(model.getCategoryId());
+                myHolder.count.setText(model.getCnt());
                 myHolder.itemView.setTag(i);
                 myHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -186,8 +186,7 @@ public class Frg_Home extends Fragment {
     private void getData() {
         //data variables call
 
-
-        StringRequest stringRequest = new StringRequest(StringRequest.Method.POST, "https://dev.kirana2door.com/androidapi/mainpagealldata", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(StringRequest.Method.POST, RetrofitClient.BASE_URL+"mainpagealldata", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Gson gson = new Gson();
@@ -229,15 +228,11 @@ public class Frg_Home extends Fragment {
             @Override
             public void onResponse(Call<MainPageResponse> call, Response<MainPageResponse> response) {
                 MainPageResponse mpgResponse = response.body();
-
                 if (!mpgResponse.isError()) {
-
-
                 } else {
                     Toast.makeText(getActivity(), mpgResponse.getMessage(), Toast.LENGTH_LONG).show();
                 }
             }
-
             @Override
             public void onFailure(Call<MainPageResponse> call, Throwable t) {
                 Toast.makeText(getActivity(), "Failed to process your request !", Toast.LENGTH_LONG).show();
@@ -248,8 +243,8 @@ public class Frg_Home extends Fragment {
 
     public void slider(){
 
-              BannerSlider viewPagerAdapter = new BannerSlider(getActivity(),bannerItems,1);
-              viewPager.setAdapter(viewPagerAdapter);
+        BannerSlider viewPagerAdapter = new BannerSlider(getActivity(),bannerItems,1);
+        viewPager.setAdapter(viewPagerAdapter);
 
         final Handler handler = new Handler();
         final Runnable Update = new Runnable() {
