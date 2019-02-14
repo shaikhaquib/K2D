@@ -57,7 +57,7 @@ public class Product_page extends AppCompatActivity {
             @NonNull
             @Override
             public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-                View view= LayoutInflater.from(Product_page.this).inflate(R.layout.product, viewGroup,false);
+                View view= LayoutInflater.from(Product_page.this).inflate(R.layout.product_list, viewGroup,false);
                 Holder holder=new Holder(view);
                 return holder;
             }
@@ -69,7 +69,7 @@ public class Product_page extends AppCompatActivity {
                 myHolder.prdname.setText(prd_names[i]);
                 myHolder.prddesc.setText(prd_names[i]);
                 myHolder.prdqnt.setText(prd_qnt[i]);
-                myHolder.prdprice.setText(prd_price[i]);
+            //    myHolder.prdprice.setText(prd_price[i]);
 
 
             }
@@ -89,7 +89,7 @@ public class Product_page extends AppCompatActivity {
                     prdname = itemView.findViewById(R.id.product_name);
                     prddesc = itemView.findViewById(R.id.product_desc);
                     prdqnt = itemView.findViewById(R.id.product_qnt);
-                    prdprice = itemView.findViewById(R.id.product_price);
+                  //  prdprice = itemView.findViewById(R.id.product_price);
 
 
                 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,21 +11,46 @@
         android:layout_gravity="center"
         android:orientation="vertical">
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dimen_16"
-            android:visibility="visible"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
+            android:paddingTop="8dp"
+            android:background="@color/white"
+            android:paddingBottom="8dp">
+
+            <ImageView
+                android:id="@+id/prd_back"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="YOUR CART"
-                android:gravity="center_vertical|center"
-                android:layout_margin="@dimen/dimen_16"
+                android:layout_marginLeft="@dimen/font_20sp"
+                android:src="@drawable/ic_close"
+                />
+
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="PRODUCTS"
+                android:textSize="@dimen/font_20sp"
+                android:textStyle="bold"
+                android:textColor="#919191"
                 android:fontFamily="@font/maiandra_gd_regular"
-                android:textSize="@dimen/font_20sp"/>
+                android:gravity="center"
+                android:layout_marginLeft="-30dp"
+                android:layout_gravity="center_vertical|center"/>
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cartView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:orientation="vertical">
+
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_cart"
@@ -43,9 +68,11 @@
                 <Button
                     android:layout_width="120dp"
                     android:layout_height="40dp"
-                    android:onClick="DoLogin"
+                    android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
+                    android:layout_marginRight="16dp"
                     android:background="@drawable/background"
+                    android:onClick="DoLogin"
                     android:text="ADD MORE"
                     android:textColor="@color/white" />
 
@@ -63,18 +90,22 @@
             </RelativeLayout>
 
         </LinearLayout>
+    </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:id="@+id/cartError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="gone"
+            android:visibility="visible"
+            android:layout_centerInParent="true"
             android:gravity="center_vertical|center_horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="70sp"
+
                 android:textColor="@color/colorPrimary"
                 android:text="?"/>
 
@@ -115,6 +146,5 @@
 
         </LinearLayout>
 
-    </LinearLayout>
 
-</android.support.v4.widget.NestedScrollView>
+</RelativeLayout>

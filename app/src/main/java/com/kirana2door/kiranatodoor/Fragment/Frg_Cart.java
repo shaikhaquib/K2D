@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -36,6 +38,7 @@ public class Frg_Cart extends Fragment {
 
     RecyclerView rv_cart;
     List<StockistListInCartItem> slci = new ArrayList<>();
+    LinearLayout CartView , ErrorView;
     /*String[] prd_img = {
         "https://www.bigbasket.com/media/uploads/p/s/40112512_2-bb-royal-medjool-dates.jpg",
         "https://www.bigbasket.com/media/uploads/p/s/40072455_5-bb-royal-organic-kabuli-chanachanna.jpg",
@@ -54,6 +57,8 @@ public class Frg_Cart extends Fragment {
         View view =  inflater.inflate(R.layout.frg_cart, null);
 
         rv_cart = view.findViewById(R.id.rv_cart);
+        CartView = view.findViewById(R.id.cartView);
+        ErrorView = view.findViewById(R.id.cartError);
         rv_cart.setNestedScrollingEnabled(false);
         rv_cart.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -116,6 +121,14 @@ public class Frg_Cart extends Fragment {
                 StockistListInCart res = gson.fromJson(response, StockistListInCart.class);
                 slci = res.getStockistListInCart();
                 rv_cart.getAdapter().notifyDataSetChanged();
+
+                if (slci.size() == 0) {
+                    CartView.setVisibility(View.GONE);
+                    ErrorView.setVisibility(View.VISIBLE);
+                }else {
+                    CartView.setVisibility(View.VISIBLE);
+                    ErrorView.setVisibility(View.GONE);
+                }
 
             }
         }, new Response.ErrorListener() {

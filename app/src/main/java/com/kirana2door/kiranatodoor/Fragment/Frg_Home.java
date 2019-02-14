@@ -93,7 +93,7 @@ public class Frg_Home extends Fragment {
         manualSlider.setPageMargin(-20);
 
 
-        rvOfferproduct.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayout.HORIZONTAL,true));
+        rvOfferproduct.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayout.HORIZONTAL,false));
         rvOfferproduct.setAdapter(new RecyclerView.Adapter() {
             @NonNull
             @Override
