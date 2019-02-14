@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.kirana2door.kiranatodoor.models.BannerItem;
 import com.kirana2door.kiranatodoor.models.CatbanItem;
 
@@ -48,7 +51,9 @@ public class BannerSlider  extends PagerAdapter {
             ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
             //imageView.setImageResource(images[position]);
 
-            Glide.with(context).load(images.get(position).getBannerImg()).into(imageView);
+            RequestOptions requestOptions = new RequestOptions();
+            requestOptions = requestOptions.transforms(new CenterCrop(), new RoundedCorners(16));
+            Glide.with(context).load(images.get(position).getBannerImg()).apply(requestOptions).into(imageView);
 
 
             view.setOnClickListener(new View.OnClickListener() {

@@ -11,38 +11,6 @@
         android:layout_gravity="center"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="8dp"
-            android:background="@color/white"
-            android:paddingBottom="8dp">
-
-            <ImageView
-                android:id="@+id/prd_back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/font_20sp"
-                android:src="@drawable/ic_close"
-                />
-
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="PRODUCTS"
-                android:textSize="@dimen/font_20sp"
-                android:textStyle="bold"
-                android:textColor="#919191"
-                android:fontFamily="@font/maiandra_gd_regular"
-                android:gravity="center"
-                android:layout_marginLeft="-30dp"
-                android:layout_gravity="center_vertical|center"/>
-
-
-
-
-        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/cartView"

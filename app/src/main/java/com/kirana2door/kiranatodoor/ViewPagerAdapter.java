@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.kirana2door.kiranatodoor.models.CatbanItem;
 
 import java.util.List;
@@ -65,14 +68,19 @@ public class ViewPagerAdapter extends PagerAdapter {
 
             ViewPager vp = (ViewPager) container;
             vp.addView(view, 0);
+            int pagerPadding = 16;
+            vp.setClipToPadding(false);
+            vp.setPadding(pagerPadding, 0, pagerPadding, 0);
         }else if (type == 1) {
 
             layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
              view = layoutInflater.inflate(R.layout.custom_layout, null);
             ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
             //imageView.setImageResource(images[position]);
+            RequestOptions requestOptions = new RequestOptions();
+            requestOptions = requestOptions.transforms(new CenterCrop(), new RoundedCorners(20));
 
-            Glide.with(context).load(images.get(position).getOffpicPath()).into(imageView);
+            Glide.with(context).load(images.get(position).getOffpicPath()).apply(requestOptions).into(imageView);
 
 
             view.setOnClickListener(new View.OnClickListener() {

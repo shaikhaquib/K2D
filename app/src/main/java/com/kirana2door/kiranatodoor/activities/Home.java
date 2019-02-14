@@ -17,19 +17,21 @@ import com.kirana2door.kiranatodoor.Fragment.Frg_Notification;
 import com.kirana2door.kiranatodoor.Fragment.Frg_Store;
 import com.kirana2door.kiranatodoor.Global;
 import com.kirana2door.kiranatodoor.R;
+import com.kirana2door.kiranatodoor.ViewDialog;
 
 public class Home extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
     FloatingActionButton fab;
     Fragment fragment = null;
-
+    ViewDialog progressDialoge;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         getSupportActionBar().hide();
+        progressDialoge=new ViewDialog(this);
         SharedPreferences mPrefs = getSharedPreferences("my_shared_preff",0);
         Global.customer_id = mPrefs.getString("id", "");
         bottomNavigationView = findViewById(R.id.navigation);

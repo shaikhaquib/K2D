@@ -28,8 +28,12 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_add_black_24dp" />
-                            <entry key="sourceFile" value="C:\Users\Shaikh Aquib\Desktop\clipboard.svg" />
+                            <entry key="assetSourceType" value="FILE" />
+                            <entry key="height" value="1062" />
+                            <entry key="outputName" value="ic_logo" />
+                            <entry key="overrideSize" value="true" />
+                            <entry key="sourceFile" value="E:\Kinara2door_logo_updated-01.svg" />
+                            <entry key="width" value="2781" />
                           </map>
                         </option>
                       </PersistentState>

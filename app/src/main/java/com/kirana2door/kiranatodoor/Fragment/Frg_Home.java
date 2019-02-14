@@ -10,7 +10,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SnapHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,10 +27,14 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.gson.Gson;
 import com.kirana2door.kiranatodoor.BannerSlider;
 import com.kirana2door.kiranatodoor.Global;
 import com.kirana2door.kiranatodoor.R;
+import com.kirana2door.kiranatodoor.ViewDialog;
 import com.kirana2door.kiranatodoor.ViewPagerAdapter;
 import com.kirana2door.kiranatodoor.activities.Product_page;
 import com.kirana2door.kiranatodoor.api.Api;
@@ -59,7 +65,7 @@ public class Frg_Home extends Fragment {
 
     ViewPager viewPager,manualSlider;
     LinearLayout sliderDotspanel;
-    RecyclerView rvOfferproduct,rvCat;
+    RecyclerView rvOfferproduct,rvCat,rvManualSlider;
     private int dotscount;
     private ImageView[] dots;
     View parentLayout;
@@ -68,6 +74,7 @@ public class Frg_Home extends Fragment {
     List<CatItem> catItems = new ArrayList<>();
     List<ProdbanItem> prodbanItems = new ArrayList<>();
     List<StockistItem> stockistItems = new ArrayList<>();
+    ViewDialog progressDialoge;
 
 
 
@@ -82,12 +89,46 @@ public class Frg_Home extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.frg_home, null);
 
+        progressDialoge=new ViewDialog(getActivity());
         sliderDotspanel =  view.findViewById(R.id.catSliderDots);
         viewPager = view.findViewById(R.id.catviewPager);
         manualSlider = view.findViewById(R.id.manualSlider);
         rvOfferproduct = view.findViewById(R.id.rvOfferproduct);
         rvOfferproduct.setNestedScrollingEnabled(false);
         rvCat = view.findViewById(R.id.rvCat);
+        rvManualSlider = view.findViewById(R.id.rvManualSlider);
+        SnapHelper snapHelper = new PagerSnapHelper();
+        snapHelper.attachToRecyclerView(rvManualSlider);
+        rvManualSlider.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
+        rvManualSlider.setAdapter(new RecyclerView.Adapter() {
+            @NonNull
+            @Override
+            public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+                View view = LayoutInflater.from(getActivity()).inflate(R.layout.manual_slide,viewGroup,false);
+                return new Holder(view);
+            }
+
+            @Override
+            public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+                Holder holder = (Holder)viewHolder;
+
+                Glide.with(getActivity()).load(catbanItems.get(i).getOffpicPath()).into(holder.Slide);
+
+            }
+
+            @Override
+            public int getItemCount() {
+                return catbanItems.size();
+            }
+            class Holder extends RecyclerView.ViewHolder {
+                ImageView Slide;
+                public Holder(@NonNull View itemView) {
+                    super(itemView);
+                    Slide = itemView.findViewById(R.id.imageView);
+                }
+            }
+        });
+
         rvCat.setNestedScrollingEnabled(false);
         rvCat.setLayoutManager(new LinearLayoutManager(getActivity()));
         manualSlider.setPageMargin(-20);
@@ -186,9 +227,11 @@ public class Frg_Home extends Fragment {
     private void getData() {
         //data variables call
 
+        progressDialoge.show();
         StringRequest stringRequest = new StringRequest(StringRequest.Method.POST, RetrofitClient.BASE_URL+"mainpagealldata", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                progressDialoge.dismiss();
                 Gson gson = new Gson();
                 MainResponse ReMainResponse = gson.fromJson(response, MainResponse.class);
                 bannerItems=ReMainResponse.getBanner();
@@ -202,12 +245,13 @@ public class Frg_Home extends Fragment {
                 slider();
                 rvOfferproduct.getAdapter().notifyDataSetChanged();
                 rvCat.getAdapter().notifyDataSetChanged();
+                rvManualSlider.getAdapter().notifyDataSetChanged();
 
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                progressDialoge.dismiss();
             }
         }) {
             @Override

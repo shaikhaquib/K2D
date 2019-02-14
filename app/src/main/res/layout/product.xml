@@ -49,6 +49,30 @@
                 android:layout_alignParentLeft="true"
                 android:text="Quantity"/>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_alignParentRight="true">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_remove_black_24dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 50 "/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dimen_16"
+                android:src="@drawable/ic_add_black_24dp"/>
+
+
             <TextView
                 android:id="@+id/product_price"
                 android:layout_width="wrap_content"
@@ -56,7 +80,7 @@
                 android:textColor="@color/colorPrimary"
                 android:layout_alignParentRight="true"
                 android:text="Price"/>
-
+            </LinearLayout>
 
         </RelativeLayout>
 

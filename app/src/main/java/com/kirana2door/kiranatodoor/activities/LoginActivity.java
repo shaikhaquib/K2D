@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.kirana2door.kiranatodoor.R;
+import com.kirana2door.kiranatodoor.ViewDialog;
 import com.kirana2door.kiranatodoor.api.RetrofitClient;
 import com.kirana2door.kiranatodoor.models.LoginResponse;
 import com.kirana2door.kiranatodoor.storage.SharedPrefManager;
@@ -24,11 +25,13 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editTextEmail;
     private EditText editTextPassword;
     private Button loginButton;
+    ViewDialog progress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        progress = new ViewDialog(this);
         editTextEmail = findViewById(R.id.email);
         editTextPassword = findViewById(R.id.password);
         loginButton= findViewById(R.id.login);
@@ -72,13 +75,14 @@ public class LoginActivity extends AppCompatActivity {
             editTextPassword.requestFocus();
             return;
         }
-
+        progress.show();
         Call<LoginResponse> call = RetrofitClient
                 .getInstance().getApi().userLogin(email, password);
         call.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 LoginResponse loginResponse = response.body();
+                progress.dismiss();
 
                 if (!loginResponse.isError()) {
                     // Log.d("message",loginResponse.getMessage());
@@ -102,6 +106,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
+                progress.dismiss();
                 Toast.makeText(LoginActivity.this, "Failed to process your request !", Toast.LENGTH_LONG).show();
             }
         });

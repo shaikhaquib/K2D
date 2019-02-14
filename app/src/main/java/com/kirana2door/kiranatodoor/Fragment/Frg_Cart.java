@@ -23,6 +23,7 @@ import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.kirana2door.kiranatodoor.Global;
 import com.kirana2door.kiranatodoor.R;
+import com.kirana2door.kiranatodoor.ViewDialog;
 import com.kirana2door.kiranatodoor.activities.CartProductList;
 import com.kirana2door.kiranatodoor.adapters.StockistListInCart;
 import com.kirana2door.kiranatodoor.adapters.StockistListInCartItem;
@@ -39,6 +40,7 @@ public class Frg_Cart extends Fragment {
     RecyclerView rv_cart;
     List<StockistListInCartItem> slci = new ArrayList<>();
     LinearLayout CartView , ErrorView;
+    ViewDialog progressDialog;
     /*String[] prd_img = {
         "https://www.bigbasket.com/media/uploads/p/s/40112512_2-bb-royal-medjool-dates.jpg",
         "https://www.bigbasket.com/media/uploads/p/s/40072455_5-bb-royal-organic-kabuli-chanachanna.jpg",
@@ -55,7 +57,7 @@ public class Frg_Cart extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.frg_cart, null);
-
+        progressDialog=new ViewDialog(getActivity());
         rv_cart = view.findViewById(R.id.rv_cart);
         CartView = view.findViewById(R.id.cartView);
         ErrorView = view.findViewById(R.id.cartError);
@@ -113,10 +115,12 @@ public class Frg_Cart extends Fragment {
 
     private void getData() {
         //data variables call
-
+        progressDialog.show();
         StringRequest stringRequest = new StringRequest(StringRequest.Method.POST, RetrofitClient.BASE_URL+"getcartstklist", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+
+                progressDialog.dismiss();
                 Gson gson = new Gson();
                 StockistListInCart res = gson.fromJson(response, StockistListInCart.class);
                 slci = res.getStockistListInCart();
@@ -134,7 +138,7 @@ public class Frg_Cart extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                progressDialog.dismiss();
             }
         }) {
             @Override

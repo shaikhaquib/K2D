@@ -22,7 +22,7 @@ public class ViewDialog {
         //...set cancelable false so that it's never get hidden
         dialog.setCancelable(false);
         //...that's the layout i told you will inflate later
-     //   dialog.setContentView(R.layout.custom_loading_layout);
+         dialog.setContentView(R.layout.custom_loading_layout);
        // final android.support.v7.app.AlertDialog dialog = builder.create();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         dialog.show();
