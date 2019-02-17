@@ -1,0 +1,104 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/layoutTop"
+        android:layout_width="match_parent"
+        android:background="@drawable/green_gradiant"
+        android:layout_height="200dp" >
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutBottom"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/layoutTop"
+        android:layout_marginTop="-30dp"
+        android:layout_marginLeft="@dimen/dimen_16"
+        android:layout_marginRight="@dimen/dimen_16"
+        android:backgroundTint="@color/white"
+        android:background="@drawable/round_gradient">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="70dp"
+            android:padding="@dimen/dimen_16"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Accounts"
+                android:fontFamily="@font/maiandra_gd_regular"
+                android:textStyle="bold"
+                android:textSize="@dimen/font_20sp"/>
+            <View
+                android:layout_width="250dp"
+                android:layout_height="4dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/green_gradiant"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Order History"
+                android:layout_marginTop="@dimen/font_20sp"
+                android:fontFamily="@font/maiandra_gd_regular"
+                android:textStyle="bold"
+                android:textSize="@dimen/font_20sp"/>
+            <View
+                android:layout_width="250dp"
+                android:layout_height="4dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/green_gradiant"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="About Us"
+                android:layout_marginTop="@dimen/font_20sp"
+                android:fontFamily="@font/maiandra_gd_regular"
+                android:textStyle="bold"
+                android:textSize="@dimen/font_20sp"/>
+            <View
+                android:layout_width="250dp"
+                android:layout_height="4dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/green_gradiant"/>
+
+            <Button
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/border"
+                android:text="Logout"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/MnDP"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_above="@id/layoutBottom"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-20dp"
+        android:src="@color/gray"
+        />
+
+</RelativeLayout>

@@ -20,27 +20,26 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup">
-        <activity android:name=".activities.SplashScreen"
+        <activity android:name=".activities.ProductDetail"/>
+        <activity
+            android:name=".activities.SplashScreen"
             android:screenOrientation="portrait">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
-        <activity android:name=".activities.CartProductList"/>
+        <activity android:name=".activities.CartProductList" />
         <activity android:name=".activities.Product_page" />
         <activity android:name=".activities.ChangePassword" />
         <activity
             android:name=".activities.LoginActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".activities.Home"
-            android:screenOrientation="portrait"
-            />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".activities.Home"
+            android:screenOrientation="portrait" />
         <activity android:name=".activities.CustomerRegistration" />
         <activity android:name=".activities.OTPVerification" />
         <activity android:name=".activities.ForgotPassword" />

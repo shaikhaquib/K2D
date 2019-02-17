@@ -7,4 +7,11 @@
     <string name="notification">Notification</string>
     <string name="cart">Cart</string>
     <string name="menu">Menu</string>
+
+    <string-array name="status">
+        <item>order\nconfirmation</item>
+        <item>Dispatched</item>
+        <item>Ready to\nDeliver</item>
+        <item>Delivered</item>
+    </string-array>
 </resources>
