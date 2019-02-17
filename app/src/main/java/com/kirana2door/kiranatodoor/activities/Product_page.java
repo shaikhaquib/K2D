@@ -1,5 +1,6 @@
 package com.kirana2door.kiranatodoor.activities;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -70,6 +71,14 @@ public class Product_page extends AppCompatActivity {
                 myHolder.prddesc.setText(prd_names[i]);
                 myHolder.prdqnt.setText(prd_qnt[i]);
             //    myHolder.prdprice.setText(prd_price[i]);
+
+
+                myHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(getApplicationContext(),ProductDetail.class).putExtra("pid","id"));
+                    }
+                });
 
 
             }
