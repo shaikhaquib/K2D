@@ -37,9 +37,8 @@ public class CartProductList extends AppCompatActivity {
     ViewDialog progressDialog;
     List<ProductListInCartItem> prodlist = new ArrayList<>();
     RecyclerView recyclerView;
-    int wt,price;
-
-
+    int wt,price,tprice=0;
+    TextView totalamt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +49,7 @@ public class CartProductList extends AppCompatActivity {
         recyclerView = findViewById(R.id.rv_cartproduct);
         progressDialog=new ViewDialog(CartProductList.this);
         ImageView prdback = findViewById(R.id.crtprd_back);
+        totalamt = findViewById(R.id.totalamt);
         prdback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,6 +76,9 @@ public class CartProductList extends AppCompatActivity {
                 myHolder.prddesc.setText(model.getProductDiscription1());
                 price = Integer.parseInt(model.getProductPrice()) * Integer.parseInt(model.getProductQty());
                 myHolder.prdprice.setText("₹. "+price);
+                tprice = tprice + price;
+                totalamt.setText("₹."+Integer.toString(tprice));
+
                 wt = Integer.parseInt(model.getProductWeight()) * Integer.parseInt(model.getProductQty());
                 myHolder.prdwtut.setText(wt+" "+model.getUnits());
                 myHolder.prdqnt.setText(model.getProductQty());
@@ -118,7 +121,7 @@ public class CartProductList extends AppCompatActivity {
                         Snackbar snackbar = Snackbar.make(v, "Product Successfully Removed From Cart !", Snackbar.LENGTH_LONG);
                         snackbar.show();
 
-                        //getData();
+                        getData();
                     }
                 });
                 /*Glide.with(CartProductList.this).load(prd_img[i]).into(myHolder.img);
@@ -160,7 +163,7 @@ public class CartProductList extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(StringRequest.Method.POST, RetrofitClient.BASE_URL+"getcartitemofstk", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
+                tprice=0;
                 progressDialog.dismiss();
                 Gson gson = new Gson();
                 ProductListInCart res = gson.fromJson(response, ProductListInCart.class);
