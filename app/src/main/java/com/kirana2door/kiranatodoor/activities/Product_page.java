@@ -222,7 +222,7 @@ public class Product_page extends AppCompatActivity {
                 myHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(Product_page.this, ChangePassword.class);
+                        Intent intent = new Intent(Product_page.this, ProductDetail.class);
                         intent.putExtra("product_id",model.getProductId());
                         intent.putExtra("shop_id",model.getShopId());
                         intent.putExtra("qty",model.getFinalqty());
