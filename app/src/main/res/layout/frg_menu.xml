@@ -31,6 +31,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/mnAccount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -38,12 +39,71 @@
                 android:fontFamily="@font/maiandra_gd_regular"
                 android:textStyle="bold"
                 android:textSize="@dimen/font_20sp"/>
+
             <View
+                android:id="@+id/mnAccountView"
                 android:layout_width="250dp"
                 android:layout_height="4dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="3dp"
                 android:background="@drawable/green_gradiant"/>
+            <LinearLayout
+                android:id="@+id/mnAccountLayout"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="3dp"
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:visibility="gone"
+                android:animateLayoutChanges="true"
+                android:background="@drawable/cardgradient">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:text="Personal Information"
+                    android:fontFamily="@font/maiandra_gd_regular"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/dimen_16"/>
+
+                <TextView
+                    android:textColor="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Manage Adderess"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/maiandra_gd_regular"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/dimen_16"/>
+
+                <TextView
+                    android:id="@+id/mnChangePassword"
+                    android:textColor="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Change Password"
+                    android:fontFamily="@font/maiandra_gd_regular"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/dimen_16"/>
+                <TextView
+                    android:textColor="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Update Contact"
+                    android:fontFamily="@font/maiandra_gd_regular"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/dimen_16"/>
+
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
