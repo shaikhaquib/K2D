@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="16dp"
+    android:id="@+id/rl"
     android:background="@drawable/ic_kirana2door_ui_ux"
     tools:context=".activities.ManageAddress">
 
@@ -52,6 +53,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="Address 1"
+                    android:id="@+id/add1"
                     android:textColorHighlight="@color/colorPrimary"
                     android:layout_weight="8"
                     android:padding="10dp"
@@ -77,6 +79,7 @@
                     android:hint="Address 2"
                     android:textColorHighlight="@color/colorPrimary"
                     android:layout_weight="8"
+                    android:id="@+id/add2"
                     android:padding="10dp"
                     android:singleLine="true"
                     android:maxLines="1"
@@ -96,10 +99,11 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Address 2"
+                    android:hint="Address 3"
                     android:textColorHighlight="@color/colorPrimary"
                     android:layout_weight="8"
                     android:padding="10dp"
+                    android:id="@+id/add3"
                     android:singleLine="true"
                     android:maxLines="1"
                     android:textSize="16sp"
@@ -122,6 +126,7 @@
                     android:hint="Pincode "
                     android:textColorHighlight="@color/colorPrimary"
                     android:layout_weight="8"
+                    android:id="@+id/pincode"
                     android:padding="10dp"
                     android:textSize="16sp"
                     android:singleLine="true"
@@ -143,6 +148,8 @@
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/background"
                 android:gravity="center"
+                android:id="@+id/update"
+                android:onClick="UpdateData"
                 android:text="UPDATE"
                 android:textColor="@color/white" />
 

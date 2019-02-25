@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="16dp"
+    android:id="@+id/rl"
     android:background="@drawable/ic_kirana2door_ui_ux"
     tools:context=".activities.PersonalInfo">
 
@@ -52,6 +53,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="8dp"
                         android:layout_weight="8"
+                        android:id="@+id/fname"
                         android:hint="First Name"
                         android:maxLines="1"
                         android:padding="10dp"
@@ -78,6 +80,7 @@
                         android:layout_marginTop="8dp"
                         android:layout_weight="8"
                         android:hint="Last Name"
+                        android:id="@+id/lname"
                         android:maxLines="1"
                         android:padding="10dp"
                         android:singleLine="true"
@@ -103,7 +106,8 @@
                     android:layout_marginTop="8dp"
                     android:layout_weight="8"
                     android:hint="Email Address"
-                    android:inputType="textEmailAddress"
+                    android:id="@+id/email"
+                    android:inputType="none"
                     android:maxLines="1"
                     android:padding="10dp"
                     android:singleLine="true"
@@ -122,6 +126,8 @@
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/background"
                 android:gravity="center"
+                android:id="@+id/update"
+                android:onClick="UpdateData"
                 android:text="UPDATE"
                 android:textColor="@color/white" />
 

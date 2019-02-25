@@ -21,7 +21,8 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup">
-        <activity android:name=".activities.UpdateContact"></activity>
+        <activity android:name=".activities.ContactVerification"></activity>
+        <activity android:name=".activities.UpdateContact" />
         <activity android:name=".activities.ManageAddress" />
         <activity android:name=".activities.PersonalInfo" />
         <activity android:name=".activities.ProductDetail" />

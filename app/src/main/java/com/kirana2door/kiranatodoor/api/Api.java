@@ -4,6 +4,7 @@ import com.kirana2door.kiranatodoor.activities.CustomerRegistration;
 import com.kirana2door.kiranatodoor.models.DefaultResponse;
 import com.kirana2door.kiranatodoor.models.LoginResponse;
 import com.kirana2door.kiranatodoor.models.MainPageResponse;
+import com.kirana2door.kiranatodoor.models.MenuResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -40,6 +41,12 @@ public interface Api {
     );
 
     @FormUrlEncoded
+    @POST("verifycontactupdate")
+    Call<DefaultResponse> verifyContactUpdate(
+            @Field("otp") String OTPPASS
+    );
+
+    @FormUrlEncoded
     @POST("forgotpassotpverify")
     Call<DefaultResponse> checkForgotPassOTP(
             @Field("otp") String OTPPASS
@@ -71,5 +78,44 @@ public interface Api {
     Call<MainPageResponse> mainPageAllData(
             @Field("custid") String custid,
             @Field("stcode") String shopid
+    );
+
+    @FormUrlEncoded
+    @POST("getCustAllDetails")
+    Call<MenuResponse > getCustAllDetails(
+            @Field("cust_id") String custid
+    );
+
+    @FormUrlEncoded
+    @POST("updatecustomerpersonaldetails")
+    Call<DefaultResponse> updatePersonalInfo(
+            @Field("fname") String fname,
+            @Field("lname") String lname,
+            @Field("cid") String cid
+    );
+
+    @FormUrlEncoded
+    @POST("changepass")
+    Call<DefaultResponse> changePass(
+            @Field("oldpass") String oldpass,
+            @Field("pass") String pass,
+            @Field("cid") String cid
+    );
+
+    @FormUrlEncoded
+    @POST("contactupdate")
+    Call<DefaultResponse> contactUpdate(
+            @Field("contact") String contact,
+            @Field("cust_id") String custid
+    );
+
+    @FormUrlEncoded
+    @POST("manageaddressofcust")
+    Call<DefaultResponse> manageAddressOfCust(
+            @Field("address1") String address1,
+            @Field("address2") String address2,
+            @Field("address3") String address3,
+            @Field("pincode") String pincode,
+            @Field("cid") String cid
     );
 }

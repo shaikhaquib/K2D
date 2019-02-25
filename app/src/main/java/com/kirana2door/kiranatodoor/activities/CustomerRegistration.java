@@ -55,13 +55,13 @@ public class CustomerRegistration extends AppCompatActivity {
         String sconfpass = confpass.getText().toString().trim();
 
         if (sfname.isEmpty()) {
-            fname.setError("Email is required");
+            fname.setError("First name is required");
             fname.requestFocus();
             return;
         }
 
         if (slname.isEmpty()) {
-            lname.setError("Email is required");
+            lname.setError("Last name is required");
             lname.requestFocus();
             return;
         }
@@ -73,43 +73,43 @@ public class CustomerRegistration extends AppCompatActivity {
         }
 
         if (sadd1.isEmpty()) {
-            add1.setError("Email is required");
+            add1.setError("Address1 is required");
             add1.requestFocus();
             return;
         }
 
         if (sadd2.isEmpty()) {
-            add2.setError("Email is required");
+            add2.setError("Add2 is required");
             add2.requestFocus();
             return;
         }
 
         if (sadd3.isEmpty()) {
-            add3.setError("Email is required");
+            add3.setError("Add3 is required");
             add3.requestFocus();
             return;
         }
 
         if (spincode.isEmpty()) {
-            pin.setError("Email is required");
+            pin.setError("Pincode is required");
             pin.requestFocus();
             return;
         }
 
         if (sphno.isEmpty()) {
-            phno.setError("Email is required");
+            phno.setError("Contact number is required");
             phno.requestFocus();
             return;
         }
 
         if (spass.isEmpty()) {
-            pass.setError("Email is required");
+            pass.setError("Password is required");
             pass.requestFocus();
             return;
         }
 
         if (sconfpass.isEmpty()) {
-            confpass.setError("Email is required");
+            confpass.setError("Please confirm password");
             confpass.requestFocus();
             return;
         }

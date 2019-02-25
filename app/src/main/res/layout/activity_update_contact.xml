@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="16dp"
+    android:id="@+id/rl"
     android:background="@drawable/ic_kirana2door_ui_ux"
     tools:context=".activities.UpdateContact">
 
@@ -44,11 +45,13 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="8dp"
                     android:layout_weight="8"
-                    android:hint="Email Address"
-                    android:inputType="textEmailAddress"
+                    android:hint="Contact"
+                    android:inputType="number"
+                    android:id="@+id/contact"
                     android:maxLines="1"
                     android:padding="10dp"
                     android:singleLine="true"
+                    android:maxLength="10"
                     android:textColorHighlight="@color/colorPrimary"
                     android:textSize="16sp" />
 
@@ -63,6 +66,8 @@
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/background"
                 android:gravity="center"
+                android:id="@+id/update"
+                android:onClick="UpdateData"
                 android:text="UPDATE"
                 android:textColor="@color/white" />
 

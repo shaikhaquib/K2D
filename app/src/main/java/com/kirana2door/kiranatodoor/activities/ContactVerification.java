@@ -1,8 +1,8 @@
 package com.kirana2door.kiranatodoor.activities;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -16,27 +16,25 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class OTPVerification extends AppCompatActivity {
+public class ContactVerification extends AppCompatActivity {
 
     private PinEntryEditText otp;
     private Button subotpbtn;
     private String emailid;
-    private String contact;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.otplayout);
+        setContentView(R.layout.activity_contact_verification);
         getSupportActionBar().hide();
 
         otp = findViewById(R.id.pinView);
         subotpbtn = findViewById(R.id.chkotp);
 
         emailid = getIntent().getStringExtra("emailid");
-        contact = getIntent().getStringExtra("contact");
     }
 
     public void CheckOTP(View arg) {
-    String OTPPASS = otp.getText().toString().trim();
+        String OTPPASS = otp.getText().toString().trim();
 
         if (OTPPASS.isEmpty()) {
             otp.setError("OTP required");
@@ -51,7 +49,7 @@ public class OTPVerification extends AppCompatActivity {
         }
 
         Call<DefaultResponse> call = RetrofitClient
-                .getInstance().getApi().checkOTP(OTPPASS);
+                .getInstance().getApi().verifyContactUpdate(OTPPASS);
         call.enqueue(new Callback<DefaultResponse>() {
             @Override
             public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
@@ -59,19 +57,19 @@ public class OTPVerification extends AppCompatActivity {
 
                 if (!defaultResponse.isError()) {
 
-                    Intent intent = new Intent(OTPVerification.this, LoginActivity.class);
+                    Intent intent = new Intent(ContactVerification.this, LoginActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
 
                 } else {
-                    Toast.makeText(OTPVerification.this, defaultResponse.getErrormsg(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(ContactVerification.this, defaultResponse.getErrormsg(), Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<DefaultResponse> call, Throwable t) {
-                Toast.makeText(OTPVerification.this, "Failed to process your request !", Toast.LENGTH_LONG).show();
+                Toast.makeText(ContactVerification.this, "Failed to process your request !", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -79,7 +77,7 @@ public class OTPVerification extends AppCompatActivity {
     public void ReSendOTP(View arg){
 
         Call<DefaultResponse> call = RetrofitClient
-                .getInstance().getApi().resendOTP(emailid.trim(),contact.trim());
+                .getInstance().getApi().resendOTP(emailid.trim(),"1234567890");
         call.enqueue(new Callback<DefaultResponse>() {
             @Override
             public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
@@ -87,16 +85,16 @@ public class OTPVerification extends AppCompatActivity {
 
                 if (!defaultResponse.isError()) {
 
-                    Toast.makeText(OTPVerification.this, defaultResponse.getErrormsg(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(ContactVerification.this, defaultResponse.getErrormsg(), Toast.LENGTH_LONG).show();
 
                 } else {
-                    Toast.makeText(OTPVerification.this, defaultResponse.getErrormsg(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(ContactVerification.this, defaultResponse.getErrormsg(), Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<DefaultResponse> call, Throwable t) {
-                Toast.makeText(OTPVerification.this, "Failed to process your request !", Toast.LENGTH_LONG).show();
+                Toast.makeText(ContactVerification.this, "Failed to process your request !", Toast.LENGTH_LONG).show();
             }
         });
     }

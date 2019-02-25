@@ -63,7 +63,7 @@ public class ForgotPassVerification extends AppCompatActivity {
                     intent.putExtra("emailid",emailid);
                     intent.putExtra("contact",contact);
                     startActivity(intent);
-
+                    finish();
                 } else {
                     Toast.makeText(ForgotPassVerification.this, defaultResponse.getErrormsg(), Toast.LENGTH_LONG).show();
                 }
