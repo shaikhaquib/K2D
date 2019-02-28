@@ -52,13 +52,14 @@
 
             <params.com.stepview.StatusViewScroller
                 android:id="@+id/status"
+                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 app:stepCount="4"
                 app:labelFont="@font/maiandra_gd_regular"
                 app:circleStrokeWidth="3dp"
-                app:circleRadius="14dp"
+                app:circleRadius="10dp"
                 app:currentCount="2"
                 app:drawLabels="true"
                 app:lineLength="30dp"

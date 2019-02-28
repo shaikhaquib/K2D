@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.SubOrder">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:id="@+id/product_img"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="#2D919191" />
+
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/histname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/maiandra_gd_regular"
+                        android:paddingLeft="8dp"
+                        android:gravity="center"
+                        android:text="Product Name"
+                        android:textColor="#919191"
+                        android:textSize="@dimen/font_20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/histQuntity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/maiandra_gd_regular"
+                        android:gravity="center"
+                        android:paddingLeft="8dp"
+                        android:text="Total item ordered : 03"
+                        android:textColor="#919191"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <params.com.stepview.StatusViewScroller
+                        android:id="@+id/status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"
+                        android:entries="@array/status"
+                        app:circleColor="@color/gray"
+                        app:circleColorCurrent="@color/gray"
+                        app:circleColorType="fillStroke"
+                        app:circleRadius="10dp"
+                        app:circleStrokeColor="@color/colorPrimary"
+                        app:circleStrokeColorCurrent="@color/colorPrimary"
+                        app:circleStrokeColorIncomplete="@color/gray"
+                        app:circleStrokeWidth="3dp"
+                        app:completeDrawable="@drawable/ic_check_tick"
+                        app:currentCount="2"
+                        app:currentDrawable="@drawable/ic_circle"
+                        app:drawLabels="true"
+                        app:incompleteDrawable="@drawable/ic_circle_gray"
+                        app:labelFont="@font/maiandra_gd_regular"
+                        app:lineColor="@color/colorPrimary"
+                        app:lineColorCurrent="@color/colorPrimary"
+                        app:lineColorIncomplete="@color/gray"
+                        app:lineLength="30dp"
+                        app:lineWidth="6dp"
+                        app:stepCount="4"
+                        app:strictObeyLineLength="true"
+                        app:textSizeLabels="6sp"
+                        app:textSizeStatus="8dp" />
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="150dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="12dp"
+                        android:layout_gravity="center"
+                        app:cardCornerRadius="8dp"
+                        app:cardBackgroundColor="#d2672a">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/dimen_16"
+                            android:layout_gravity="center"
+                            android:textColor="@color/white"
+                            android:text="CANCEL ORDER"/>
+
+                    </android.support.v7.widget.CardView>
+
+
+
+
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Order of this Stockist"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:background="#cfcfd1"/>
+
+
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rvSubhist"
+                />
+
+        </LinearLayout>
+
+
+
+
+    </android.support.v7.widget.CardView>
+
+</android.support.v4.widget.NestedScrollView>

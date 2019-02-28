@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="45dp"
+        android:fontFamily="@font/maiandra_gd_regular"
+        android:text="YOU ARE"
+        android:textSize="@dimen/font_20sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="67dp"
+        android:textStyle="bold"
+        android:textColor="#4E4D4D"
+        android:fontFamily="@font/maiandra_gd_regular"
+        android:text="GUEST USER !"
+        android:textSize="24dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="133dp"
+        android:fontFamily="@font/maiandra_gd_regular"
+        android:text="PLEASE,"
+        android:textSize="@dimen/dimen_16" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="157dp"
+        android:fontFamily="@font/maiandra_gd_regular"
+        android:text="LOGIN OR SIGN UP"
+        android:textColor="#4E4D4D"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="179dp"
+        android:fontFamily="@font/maiandra_gd_regular"
+        android:text="FOR MORE ACCESS."
+        android:textSize="@dimen/dimen_16" />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="68dp"
+        android:src="@drawable/ic_guest_user" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="123dp"
+        android:background="@drawable/round_gradient"
+        android:gravity="center"
+        android:padding="@dimen/dimen_16"
+        android:text="LOGIN"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="123dp"
+        android:background="@drawable/round_gradient"
+        android:gravity="center"
+        android:backgroundTint="#BEC6C7"
+        android:padding="@dimen/dimen_16"
+        android:text="SIGN UP"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+</RelativeLayout>
