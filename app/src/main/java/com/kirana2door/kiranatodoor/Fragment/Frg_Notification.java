@@ -1,5 +1,6 @@
 package com.kirana2door.kiranatodoor.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -21,6 +22,7 @@ import com.google.gson.Gson;
 import com.kirana2door.kiranatodoor.Global;
 import com.kirana2door.kiranatodoor.R;
 import com.kirana2door.kiranatodoor.ViewDialog;
+import com.kirana2door.kiranatodoor.activities.SubOrder;
 import com.kirana2door.kiranatodoor.adapters.OrderHistoryList;
 import com.kirana2door.kiranatodoor.adapters.OrderHistoryListItem;
 import com.kirana2door.kiranatodoor.api.AppController;
@@ -73,6 +75,23 @@ public class Frg_Notification extends Fragment {
                 myHolder.indicator.setTag(i);
                 StatusView Status = myHolder.indicator.getStatusView();
                 Status.setCurrentCount(Integer.parseInt(String.valueOf(map.get(model.getOrderStatus()))));
+
+                myHolder.itemView.setTag(i);
+                myHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getActivity(), SubOrder.class);
+                        intent.putExtra("oid",model.getOrderId());
+                        intent.putExtra("stname",model.getShopName());
+                        intent.putExtra("famt",model.getFinalAmmount());
+                        intent.putExtra("ship",model.getShippingCharges());
+                        intent.putExtra("totl",model.getTotalAmmount());
+                        intent.putExtra("logopic",model.getLogoImg());
+                        intent.putExtra("status",model.getOrderStatus());
+                        startActivity(intent);
+                    }
+                });
+
                 /*Glide.with(getActivity()).load(prd_img[i]).into(myHolder.img);
                 myHolder.prdname.setText(prd_names[i]);
                 myHolder.prdqnt.setText("Total Item Ordered : "+prd_qnt[i]);

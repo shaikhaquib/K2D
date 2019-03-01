@@ -27,7 +27,7 @@
                 android:layout_marginBottom="8dp">
 
                 <ImageView
-                    android:id="@+id/product_img"
+                    android:id="@+id/logo_img"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:background="#2D919191" />
@@ -40,7 +40,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/histname"
+                        android:id="@+id/stname"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -53,7 +53,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/histQuntity"
+                        android:id="@+id/ttlitem"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -148,7 +148,7 @@
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-
+                        android:id="@+id/oid"
                         android:text="K2D001"
                         android:textColor="@color/white"
                         android:textStyle="bold"
@@ -173,7 +173,7 @@
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-
+                        android:id="@+id/totl"
                         android:text="840"
                         android:textColor="@color/white"
                         android:textStyle="bold"
@@ -197,7 +197,7 @@
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-
+                        android:id="@+id/ship"
                         android:text="20"
                         android:textColor="@color/white"
                         android:textStyle="bold"
@@ -221,7 +221,7 @@
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-
+                        android:id="@+id/famt"
                         android:text="860"
                         android:textColor="@color/white"
                         android:textStyle="bold"

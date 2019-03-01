@@ -60,17 +60,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Quantity - "
+                        android:text="Quantity - 1"
+                        android:id="@+id/qty"
                         android:fontFamily="@font/maiandra_gd_regular"
                         android:textColor="#919191"
                         android:textSize="@dimen/font_15sp"/>
-
-
-                    <TextView
-                        android:id="@+id/qty"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=" 50 "/>
 
 
                 </LinearLayout>
@@ -87,7 +81,7 @@
 
 
                         <TextView
-                            android:id="@+id/campName"
+                            android:id="@+id/price"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"

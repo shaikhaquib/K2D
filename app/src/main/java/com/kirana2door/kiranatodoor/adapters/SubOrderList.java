@@ -4,7 +4,7 @@ import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
 
-public class SubOrder{
+public class SubOrderList {
 
 	@SerializedName("SubOrderHistoryProductList")
 	private List<SubOrderHistoryProductListItem> subOrderHistoryProductList;
@@ -20,7 +20,7 @@ public class SubOrder{
 	@Override
  	public String toString(){
 		return 
-			"SubOrder{" + 
+			"SubOrderList{" +
 			"subOrderHistoryProductList = '" + subOrderHistoryProductList + '\'' + 
 			"}";
 		}
