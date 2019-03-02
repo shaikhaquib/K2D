@@ -22,11 +22,7 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup">
         <activity android:name=".activities.SubOrder">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".activities.ContactVerification" />
         <activity android:name=".activities.UpdateContact" />
@@ -36,6 +32,11 @@
         <activity
             android:name=".activities.SplashScreen"
             android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".activities.CartProductList" />
         <activity android:name=".activities.Product_page" />

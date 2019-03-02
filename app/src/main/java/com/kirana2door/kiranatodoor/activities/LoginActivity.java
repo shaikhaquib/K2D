@@ -93,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
                         Intent intent = new Intent(LoginActivity.this, Home.class);
                         //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
-                    } else if(loginResponse.getMessage().equalsIgnoreCase("UPDATED")){
+                    }else if(loginResponse.getMessage().equalsIgnoreCase("UPDATED")){
                         Intent intent = new Intent(LoginActivity.this, ContactVerification.class);
                         intent.putExtra("emailid",loginResponse.getUser().getEmail());
                         startActivity(intent);

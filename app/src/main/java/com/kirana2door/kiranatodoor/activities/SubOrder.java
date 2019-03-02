@@ -31,6 +31,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import params.com.stepview.StatusView;
+import params.com.stepview.StatusViewScroller;
+
 public class SubOrder extends AppCompatActivity {
 
     ViewDialog progressDialog;
@@ -40,7 +43,7 @@ public class SubOrder extends AppCompatActivity {
     public int totalitem=0;
     public ImageView logo_img;
     public TextView stname,ttlitem,famt,totl,ship,orderid;
-
+    StatusViewScroller indicator;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,22 +56,29 @@ public class SubOrder extends AppCompatActivity {
         ship = findViewById(R.id.ship);
         famt = findViewById(R.id.famt);
         orderid = findViewById(R.id.oid);
-
+        indicator = findViewById(R.id.status);
+        progressDialog=new ViewDialog(SubOrder.this);
         orderid.setText(getIntent().getStringExtra("oid"));
         stname.setText(getIntent().getStringExtra("stname"));
         famt.setText(getIntent().getStringExtra("famt"));
         ship.setText(getIntent().getStringExtra("ship"));
         totl.setText(getIntent().getStringExtra("totl"));
         Glide.with(SubOrder.this).load(getIntent().getStringExtra("logopic")).into(logo_img);
-
+        ostatus = getIntent().getStringExtra("status");
+        indicator.setTag(0);
+        StatusView Status = indicator.getStatusView();
+        Status.setCurrentCount(Integer.parseInt(ostatus));
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setAdapter(new RecyclerView.Adapter() {
             @NonNull
             @Override
             public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-                View view  = LayoutInflater.from(SubOrder.this).inflate(R.layout.suborder,viewGroup,false);
-                return new RecyclerView.ViewHolder(view) {};
+                View view= LayoutInflater.from(SubOrder.this).inflate(R.layout.suborder, viewGroup,false);
+                Holder holder=new Holder(view);
+                return holder;
+                //View view  = LayoutInflater.from(SubOrder.this).inflate(R.layout.suborder,viewGroup,false);
+                //return new RecyclerView.ViewHolder(view) {};
             }
 
             @Override
@@ -81,7 +91,7 @@ public class SubOrder extends AppCompatActivity {
                 myHolder.prdprice.setText("₹. "+model.getOrderProductPrice());
                 int qty = Integer.parseInt(model.getCurrentProductWeight()) * Integer.parseInt(model.getQuantity());
                 myHolder.prodqty.setText(Integer.toString(qty)+" "+model.getCurrentProductUnit());
-                ttlitem.setText(totalitem++);
+
             }
 
             @Override
@@ -91,7 +101,7 @@ public class SubOrder extends AppCompatActivity {
             class Holder extends RecyclerView.ViewHolder {
                 ImageView img;
                 TextView prdname , prddesc, prdprice,prodqty;
-                CardView addcart;
+
                 public Holder(@NonNull View itemView) {
                     super(itemView);
                     img = itemView.findViewById(R.id.product_img);
@@ -118,7 +128,7 @@ public class SubOrder extends AppCompatActivity {
                 SubOrderList res = gson.fromJson(response, SubOrderList.class);
                 suborderprodlist = res.getSubOrderHistoryProductList();
                 recyclerView.getAdapter().notifyDataSetChanged();
-
+                ttlitem.setText("Total Items : "+suborderprodlist.size());
             }
         }, new Response.ErrorListener() {
             @Override
@@ -130,7 +140,7 @@ public class SubOrder extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map <String,String> param = new HashMap<String,String>();
                 param.put("cid", Global.customer_id);
-                param.put("oid", oid.trim());
+                param.put("oid", orderid.getText().toString().trim());
                 return param;
             }
         };

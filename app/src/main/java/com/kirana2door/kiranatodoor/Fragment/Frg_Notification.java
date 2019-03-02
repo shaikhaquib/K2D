@@ -87,7 +87,7 @@ public class Frg_Notification extends Fragment {
                         intent.putExtra("ship",model.getShippingCharges());
                         intent.putExtra("totl",model.getTotalAmmount());
                         intent.putExtra("logopic",model.getLogoImg());
-                        intent.putExtra("status",model.getOrderStatus());
+                        intent.putExtra("status",String.valueOf(map.get(model.getOrderStatus())));
                         startActivity(intent);
                     }
                 });
