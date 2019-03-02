@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    app:cardCornerRadius="8dp">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_16"
+        android:layout_gravity="center">
+
+
+        <ImageView
+            android:id="@+id/stockislogo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/border"
+            android:layout_marginBottom="@dimen/font_20sp"
+            android:src="@drawable/ic_logo" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/stockislogo"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="@dimen/font_20sp"
+            android:drawableLeft="@drawable/ic_maps_and_flags"
+            android:drawablePadding="2dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:text="Panvel-410206" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bottom_corner"
+        android:backgroundTint="@color/colorPrimary"
+        android:layout_gravity="bottom"
+        android:text="Stockist Name"
+        android:gravity="center"
+        android:textSize="@dimen/dimen_16"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:padding="10dp"/>
+
+
+</android.support.v7.widget.CardView>
