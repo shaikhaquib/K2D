@@ -15,4 +15,9 @@
         <item>Ready to\nDeliver</item>
         <item>Delivered</item>
     </string-array>
+    <string-array name="checkout">
+        <item>Billing Address</item>
+        <item>Payment</item>
+        <item>Confirm</item>
+    </string-array>
 </resources>

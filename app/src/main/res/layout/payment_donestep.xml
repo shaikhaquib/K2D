@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".activities.CustomerRegistration">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_16"
+        android:src="@drawable/ic_left_arrow"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_16"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/dimen_16"
+        android:fontFamily="@font/maiandra_gd_regular"
+        android:text="STEP 2 : PAYMENT"/>
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_margin="16dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="60dp"
+            android:orientation="vertical">
+
+            <params.com.stepview.StatusViewScroller
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:entries="@array/checkout"
+                app:circleColor="@color/gray"
+                app:circleColorCurrent="@color/gray"
+                app:circleColorType=""
+                app:circleRadius="5dp"
+                app:circleStrokeColor="@color/colorPrimary"
+                app:circleStrokeColorCurrent="@color/colorPrimary"
+                app:circleStrokeColorIncomplete="@color/gray"
+                app:circleStrokeWidth="3dp"
+                app:completeDrawable="@drawable/ic_circle"
+                app:currentCount="3"
+                app:currentDrawable="@drawable/ic_circle"
+                app:drawLabels="true"
+                app:incompleteDrawable="@drawable/ic_circle_gray"
+                app:labelFont="@font/maiandra_gd_regular"
+                app:lineColor="@color/colorPrimary"
+                app:lineColorCurrent="@color/colorPrimary"
+                app:lineColorIncomplete="@color/gray"
+                app:lineLength="120dp"
+                app:lineWidth="2dp"
+                app:stepCount="3"
+                app:strictObeyLineLength="true"
+                app:textColorLabelsCurrent="@color/colorPrimary"
+                app:textSizeStatus="12sp" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:tint="@color/colorPrimary"
+        android:src="@drawable/ic_check"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:gravity="center"
+        android:textSize="@dimen/font_20sp"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/colorPrimary"
+        android:fontFamily="@font/maiandra_gd_regular"
+        android:text="PAYMENT COMPLETE" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="238dp"
+        android:gravity="center"
+        android:text="Order Id is #5479845 \nWe will Delever your order within 2-3 hour\n Thank you for shoping with us" />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/regbtn"
+        android:onClick="DoRegister"
+        android:gravity="center"
+        android:layout_margin="16dp"
+        android:layout_gravity="center"
+        android:background="@drawable/background"
+        android:text="Contineu Shoping"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/white" />
+
+
+</RelativeLayout>
