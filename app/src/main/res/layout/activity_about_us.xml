@@ -92,25 +92,25 @@
                 android:layout_height="50dp"
                 android:layout_margin="8dp"
                 android:id="@+id/twitter"
-                android:src="@drawable/kiranaicon"/>
+                android:src="@drawable/ic_twitter"/>
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_margin="8dp"
                 android:id="@+id/gmail"
-                android:src="@drawable/kiranaicon"/>
+                android:src="@drawable/ic_gmail"/>
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_margin="8dp"
                 android:id="@+id/facebook"
-                android:src="@drawable/kiranaicon"/>
+                android:src="@drawable/ic_facebook"/>
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_margin="8dp"
                 android:id="@+id/instagram"
-                android:src="@drawable/kiranaicon"/>
+                android:src="@drawable/ic_instagram"/>
         </LinearLayout>
     </LinearLayout>
 
