@@ -99,15 +99,16 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="0dp"
+        android:id="@+id/orderidtime"
         android:layout_marginBottom="238dp"
         android:gravity="center"
-        android:text="Order Id is #5479845 \nWe will Delever your order within 2-3 hour\n Thank you for shoping with us" />
+        android:text="Order Id is #5479845 \nWe will Deliver your order within 2-3 hour\n Thank you for shoping with us" />
 
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:id="@+id/regbtn"
+        android:id="@+id/continueshoping"
         android:onClick="DoRegister"
         android:gravity="center"
         android:layout_margin="16dp"

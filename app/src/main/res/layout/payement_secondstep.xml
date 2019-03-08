@@ -119,182 +119,149 @@
             </LinearLayout>
 
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                app:hintTextAppearance="@style/TextLabel"
-                >
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="Address 1"
-                    android:id="@+id/add1"
-                    android:textColorHighlight="@color/colorPrimary"
-                    android:layout_weight="8"
-                    android:padding="10dp"
-                    android:singleLine="true"
-                    android:maxLines="1"
-                    android:textSize="16sp"
-                    android:layout_marginTop="8dp"
-
-                    />
-
-            </android.support.design.widget.TextInputLayout>
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                app:hintTextAppearance="@style/TextLabel"
-                >
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="Address 2"
-                    android:id="@+id/add2"
-                    android:textColorHighlight="@color/colorPrimary"
-                    android:layout_weight="8"
-                    android:padding="10dp"
-                    android:singleLine="true"
-                    android:maxLines="1"
-                    android:textSize="16sp"
-                    android:layout_marginTop="8dp"
-                    />
-
-            </android.support.design.widget.TextInputLayout>
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                app:hintTextAppearance="@style/TextLabel"
-                >
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="Address 2"
-                    android:id="@+id/add3"
-                    android:textColorHighlight="@color/colorPrimary"
-                    android:layout_weight="8"
-                    android:padding="10dp"
-                    android:singleLine="true"
-                    android:maxLines="1"
-                    android:textSize="16sp"
-                    android:layout_marginTop="8dp"
-
-                    />
-
-            </android.support.design.widget.TextInputLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp">
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="0dp"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                android:background="@drawable/auborder">
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="2dp"
-                    android:layout_weight="1"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    app:hintTextAppearance="@style/TextLabel">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:hint="City"
-                        android:id="@+id/pass"
-                        android:textColorHighlight="@color/colorPrimary"
-                        android:layout_weight="8"
-                        android:padding="10dp"
-                        android:textSize="16sp"
-                        android:singleLine="true"
-                        android:maxLines="1"
-                        android:layout_marginTop="8dp"
-
+                    android:weightSum="10"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Total Items : "
+                        android:textColor="@color/pin_normal"
+                        android:textStyle="bold"
+                        android:layout_weight="5"
                         />
-
-                </android.support.design.widget.TextInputLayout>
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="0dp"
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/titem"
+                        android:text="4"
+                        android:gravity="center"
+                        android:textColor="@color/pin_normal"
+                        android:textStyle="bold"
+                        android:layout_weight="5"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="4dp"
-                    app:hintTextAppearance="@style/TextLabel"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    >
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:hint="Zip Code"
-                        android:id="@+id/pincode"
-                        android:textColorHighlight="@color/colorPrimary"
-                        android:layout_weight="8"
-                        android:padding="10dp"
-                        android:textSize="16sp"
-                        android:singleLine="true"
-                        android:maxLines="1"
-                        android:inputType="number"
-                        android:maxLength="6"
-                        android:layout_marginTop="8dp"
-
+                    android:weightSum="10"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Total Amount : "
+                        android:textColor="@color/pin_normal"
+                        android:textStyle="bold"
+                        android:layout_weight="5"
                         />
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/total"
+                        android:text="40"
+                        android:gravity="center"
+                        android:textColor="@color/pin_normal"
+                        android:textStyle="bold"
+                        android:layout_weight="5"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="10"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Shipping Charges : "
+                        android:textColor="@color/pin_normal"
+                        android:textStyle="bold"
+                        android:layout_weight="5"
+                        />
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/shipcost"
+                        android:text="+ 40"
+                        android:gravity="center"
+                        android:textColor="@color/pin_normal"
+                        android:textStyle="bold"
+                        android:layout_weight="5"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="10"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Sub Total : "
+                        android:textColor="@color/pin_normal"
+                        android:textStyle="bold"
+                        android:layout_weight="5"
+                        />
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/stotal"
+                        android:text="80"
+                        android:gravity="center"
+                        android:textColor="@color/pin_normal"
+                        android:textStyle="bold"
+                        android:layout_weight="5"
+                        />
+                </LinearLayout>
 
-                </android.support.design.widget.TextInputLayout>
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="4dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/background"/>
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Your order will be delivered within next 2.30 hours."
+                    android:gravity="center"
+                    android:id="@+id/timedet"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
 
             </LinearLayout>
-
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                app:hintTextAppearance="@style/TextLabel">
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="State"
-                    android:id="@+id/phno"
-                    android:textColorHighlight="@color/colorPrimary"
-                    android:layout_weight="8"
-                    android:padding="10dp"
-                    android:singleLine="true"
-                    android:maxLines="1"
-                    android:textSize="16sp"
-                    android:inputType="number"
-                    android:maxLength="10"
-                    android:layout_marginTop="8dp"
-                    />
-
-            </android.support.design.widget.TextInputLayout>
-
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:id="@+id/regbtn"
-                android:onClick="DoRegister"
-                android:gravity="center"
-                android:layout_marginTop="30dp"
-                android:layout_gravity="center"
-                android:background="@drawable/background"
-                android:text="Next"
-                android:layout_marginBottom="16dp"
-                android:textColor="@color/white" />
-
-
-
-
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
-
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/nextbtn"
+        android:onClick="DoRegister"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:background="@drawable/background"
+        android:text="Place Order"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:textColor="@color/white" />
 </RelativeLayout>

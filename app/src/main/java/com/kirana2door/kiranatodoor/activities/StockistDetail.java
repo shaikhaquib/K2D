@@ -106,12 +106,19 @@ public class StockistDetail extends AppCompatActivity {
     }
 
     private void sendMail() {
-        Intent intent = new Intent(Intent.ACTION_SEND);
+        /*Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/html");
         intent.putExtra(Intent.EXTRA_EMAIL, email.getText().toString().trim());
         intent.putExtra(Intent.EXTRA_SUBJECT, "Write Subject of mail here");
         intent.putExtra(Intent.EXTRA_TEXT, "Respected "+ownername+" Sir,");
 
-        startActivity(Intent.createChooser(intent, "Choose an email client..."));
+        startActivity(Intent.createChooser(intent, "Choose an email client..."));*/
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/html");
+        String[] recipients={"info@kiran2door.com"};
+        intent.putExtra(Intent.EXTRA_EMAIL, recipients);
+        intent.putExtra(Intent.EXTRA_SUBJECT, "");
+        intent.putExtra(Intent.EXTRA_TEXT, "");
+        startActivity(Intent.createChooser(intent, "Send mail via..."));
     }
 }

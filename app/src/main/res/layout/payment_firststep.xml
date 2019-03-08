@@ -79,7 +79,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="Full Name"
-                    android:id="@+id/email"
+                    android:id="@+id/fullname"
                     android:textColorHighlight="@color/colorPrimary"
                     android:layout_weight="8"
                     android:padding="10dp"
@@ -102,7 +102,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="Phone no"
-                    android:id="@+id/add1"
+                    android:id="@+id/phone"
                     android:textColorHighlight="@color/colorPrimary"
                     android:layout_weight="8"
                     android:inputType="number"
@@ -128,7 +128,7 @@
                     android:layout_height="match_parent"
                     android:hint="Email"
                     android:inputType="textEmailAddress"
-                    android:id="@+id/add2"
+                    android:id="@+id/email"
                     android:textColorHighlight="@color/colorPrimary"
                     android:layout_weight="8"
                     android:padding="10dp"
@@ -151,7 +151,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="Address"
-                    android:id="@+id/add3"
+                    android:id="@+id/comadd"
                     android:textColorHighlight="@color/colorPrimary"
                     android:layout_weight="8"
                     android:padding="10dp"
@@ -182,7 +182,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:hint="City"
-                        android:id="@+id/pass"
+                        android:id="@+id/city"
                         android:textColorHighlight="@color/colorPrimary"
                         android:layout_weight="8"
                         android:padding="10dp"
@@ -237,7 +237,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="State"
-                    android:id="@+id/phno"
+                    android:id="@+id/state"
                     android:textColorHighlight="@color/colorPrimary"
                     android:layout_weight="8"
                     android:padding="10dp"
@@ -252,18 +252,7 @@
             </android.support.design.widget.TextInputLayout>
 
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:id="@+id/regbtn"
-                android:onClick="DoRegister"
-                android:gravity="center"
-                android:layout_marginTop="30dp"
-                android:layout_gravity="center"
-                android:background="@drawable/background"
-                android:text="Next"
-                android:layout_marginBottom="16dp"
-                android:textColor="@color/white" />
+
 
 
 
@@ -271,5 +260,19 @@
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
-
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/nextbtn"
+        android:onClick="DoRegister"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:background="@drawable/background"
+        android:text="Next"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:textColor="@color/white" />
 </RelativeLayout>
