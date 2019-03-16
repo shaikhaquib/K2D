@@ -44,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         if (SharedPrefManager.getInstance(this).isLoggedIn()) {
             Intent intent = new Intent(this, Home.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.putExtra("id","0");
             startActivity(intent);
         }
     }
@@ -91,7 +92,7 @@ public class LoginActivity extends AppCompatActivity {
                                 .saveUser(loginResponse.getUser());
 
                         Intent intent = new Intent(LoginActivity.this, Home.class);
-                        //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        intent.putExtra("id","0");
                         startActivity(intent);
                     }else if(loginResponse.getMessage().equalsIgnoreCase("UPDATED")){
                         Intent intent = new Intent(LoginActivity.this, ContactVerification.class);

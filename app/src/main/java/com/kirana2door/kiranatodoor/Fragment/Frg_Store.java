@@ -2,10 +2,13 @@ package com.kirana2door.kiranatodoor.Fragment;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -23,6 +26,8 @@ import com.google.gson.Gson;
 import com.kirana2door.kiranatodoor.Global;
 import com.kirana2door.kiranatodoor.R;
 import com.kirana2door.kiranatodoor.ViewDialog;
+import com.kirana2door.kiranatodoor.activities.Home;
+import com.kirana2door.kiranatodoor.activities.LoginActivity;
 import com.kirana2door.kiranatodoor.activities.StockistDetail;
 import com.kirana2door.kiranatodoor.adapters.ShopListItem;
 import com.kirana2door.kiranatodoor.adapters.ShopsInPincode;
@@ -44,11 +49,13 @@ public class Frg_Store extends Fragment {
     SharedPreferences sp;
     String pincode;
     String SHARED_PREF_NAME = "my_shared_preff";
+    Home activity;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.frg_stockist, null);
         progressDialog=new ViewDialog(getActivity());
+        activity = (Home) getActivity();
 
 
         sp = getActivity().getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE);
@@ -71,7 +78,28 @@ public class Frg_Store extends Fragment {
                 myHolder.name.setText(model.getShopName());
                 myHolder.pin.setText(model.getCityName()+"-"+model.getPincode());
                 myHolder.itemView.setTag(i);
+                myHolder.dmenu.setTag(i);
+                myHolder.card.setTag(i);
+
+
+                if (activity.getIntent().getStringExtra("id").equals(model.getId())){
+                    myHolder.card.setCardBackgroundColor(Color.parseColor("#ccffcc"));
+                //    myHolder.img.setColorFilter(ContextCompat.getColor(getActivity(), R.color.gtin), android.graphics.PorterDuff.Mode.SRC_IN);
+
+                }
+
+
                 myHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getActivity(), Home.class);
+                        intent.putExtra("id",model.getId());
+                        startActivity(intent);
+
+                    }
+                });
+
+                myHolder.dmenu.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(getActivity(), StockistDetail.class);
@@ -106,13 +134,16 @@ public class Frg_Store extends Fragment {
             }
 
             class Holder extends RecyclerView.ViewHolder {
-                ImageView img;
+                ImageView img,dmenu;
                 TextView name , pin ;
+                CardView card;
                 public Holder(@NonNull View itemView) {
                     super(itemView);
 
 
+                    card = itemView.findViewById(R.id.card);
                     img = itemView.findViewById(R.id.stockislogo);
+                    dmenu = itemView.findViewById(R.id.dmenu);
                     name = itemView.findViewById(R.id.stname);
                     pin = itemView.findViewById(R.id.pin);
                 }
