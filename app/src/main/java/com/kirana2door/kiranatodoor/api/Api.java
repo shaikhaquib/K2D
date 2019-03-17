@@ -1,6 +1,7 @@
 package com.kirana2door.kiranatodoor.api;
 
 import com.kirana2door.kiranatodoor.activities.CustomerRegistration;
+import com.kirana2door.kiranatodoor.adapters.ShipmentCSTNTM;
 import com.kirana2door.kiranatodoor.models.DefaultResponse;
 import com.kirana2door.kiranatodoor.models.LoginResponse;
 import com.kirana2door.kiranatodoor.models.MainPageResponse;
@@ -110,6 +111,13 @@ public interface Api {
     );
 
     @FormUrlEncoded
+    @POST("getshippingcostNtime")
+    Call<ShipmentCSTNTM> getShippingCostNTime(
+            @Field("pincode") String pincode,
+            @Field("shopid") String shopid
+    );
+
+    @FormUrlEncoded
     @POST("manageaddressofcust")
     Call<DefaultResponse> manageAddressOfCust(
             @Field("address1") String address1,
@@ -117,5 +125,23 @@ public interface Api {
             @Field("address3") String address3,
             @Field("pincode") String pincode,
             @Field("cid") String cid
+    );
+
+    @FormUrlEncoded
+    @POST("placeorder")
+    Call<DefaultResponse> placeOrder(
+            @Field("email") String email,
+            @Field("cid") String cid,
+            @Field("payment_type") String payment_type,
+            @Field("pincode") String pincode,
+            @Field("shopid") String shopid,
+            @Field("totalprice") String totalprice,
+            @Field("shippingcost") String shippingcost,
+            @Field("finalprice") String finalprice,
+            @Field("add1") String add1,
+            @Field("add2") String add2,
+            @Field("add3") String add3,
+            @Field("state") String state,
+            @Field("city") String city
     );
 }

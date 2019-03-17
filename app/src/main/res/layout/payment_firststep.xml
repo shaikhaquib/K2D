@@ -5,13 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".activities.CustomerRegistration">
+    tools:context=".activities.BillingAddActivity">
 
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dimen_16"
+        android:id="@+id/prd_back"
         android:src="@drawable/ic_left_arrow"/>
 
     <TextView
@@ -86,6 +87,7 @@
                     android:singleLine="true"
                     android:maxLines="1"
                     android:textSize="16sp"
+                    android:enabled="false"
                     android:layout_marginTop="@dimen/padding_10"
                     />
 
@@ -108,6 +110,7 @@
                     android:inputType="number"
                     android:maxLength="10"
                     android:padding="10dp"
+                    android:enabled="false"
                     android:singleLine="true"
                     android:maxLines="1"
                     android:textSize="16sp"
@@ -133,6 +136,7 @@
                     android:layout_weight="8"
                     android:padding="10dp"
                     android:singleLine="true"
+                    android:enabled="false"
                     android:maxLines="1"
                     android:textSize="16sp"
                     android:layout_marginTop="8dp"
@@ -156,6 +160,57 @@
                     android:layout_weight="8"
                     android:padding="10dp"
                     android:singleLine="true"
+                    android:enabled="false"
+                    android:maxLines="1"
+                    android:textSize="16sp"
+                    android:layout_marginTop="8dp"
+
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:hintTextAppearance="@style/TextLabel"
+                >
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Address"
+                    android:id="@+id/add2"
+                    android:textColorHighlight="@color/colorPrimary"
+                    android:layout_weight="8"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:enabled="false"
+                    android:maxLines="1"
+                    android:textSize="16sp"
+                    android:layout_marginTop="8dp"
+
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:hintTextAppearance="@style/TextLabel"
+                >
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Address"
+                    android:id="@+id/add3"
+                    android:textColorHighlight="@color/colorPrimary"
+                    android:layout_weight="8"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:enabled="false"
                     android:maxLines="1"
                     android:textSize="16sp"
                     android:layout_marginTop="8dp"
@@ -187,6 +242,7 @@
                         android:layout_weight="8"
                         android:padding="10dp"
                         android:textSize="16sp"
+                        android:enabled="false"
                         android:singleLine="true"
                         android:maxLines="1"
                         android:layout_marginTop="8dp"
@@ -213,6 +269,7 @@
                         android:padding="10dp"
                         android:textSize="16sp"
                         android:singleLine="true"
+                        android:enabled="false"
                         android:maxLines="1"
                         android:inputType="number"
                         android:maxLength="6"
@@ -243,6 +300,7 @@
                     android:padding="10dp"
                     android:singleLine="true"
                     android:maxLines="1"
+                    android:enabled="false"
                     android:textSize="16sp"
                     android:inputType="number"
                     android:maxLength="10"
@@ -264,7 +322,6 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:id="@+id/nextbtn"
-        android:onClick="DoRegister"
         android:gravity="center"
         android:layout_marginTop="30dp"
         android:layout_gravity="center"

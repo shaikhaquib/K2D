@@ -5,13 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".activities.CustomerRegistration">
+    android:id="@+id/rl"
+    tools:context=".activities.PaymentActivity">
 
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dimen_16"
+        android:id="@+id/prd_back"
         android:src="@drawable/ic_left_arrow"/>
 
     <TextView
@@ -241,10 +243,16 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="Shipping is free for order more than ₹. 500 ."
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="Your order will be delivered within next 2.30 hours."
                     android:gravity="center"
                     android:id="@+id/timedet"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginBottom="10dp"/>
 
             </LinearLayout>
@@ -254,8 +262,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:id="@+id/nextbtn"
-        android:onClick="DoRegister"
+        android:id="@+id/plord"
         android:gravity="center"
         android:layout_marginTop="30dp"
         android:layout_gravity="center"
