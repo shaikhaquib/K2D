@@ -2,6 +2,9 @@ package com.kirana2door.kiranatodoor.activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -20,12 +23,28 @@ import com.kirana2door.kiranatodoor.adapters.ShipmentCSTNTM;
 import com.kirana2door.kiranatodoor.api.RetrofitClient;
 import com.kirana2door.kiranatodoor.models.DefaultResponse;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class PaymentActivity extends AppCompatActivity {
 
+    public static final int CONNECTION_TIMEOUT = 10000;
+    public static final int READ_TIMEOUT = 15000;
     TextView titem,total,shopcst,subttl,timedet;
     Button placeorder;
     ImageView backbtn;
@@ -33,6 +52,7 @@ public class PaymentActivity extends AppCompatActivity {
     ViewDialog progressDialog;
     String pincode,shopid,add1,add2,add3,state,city;
     int shipingcost = 0,finalamt = 0,dmin = 0;
+    String timedetailsinhrmin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +115,7 @@ public class PaymentActivity extends AppCompatActivity {
                 dmin = Integer.parseInt(mr.getDeliveryTime());
                 int hours = dmin / 60;
                 int minutes = dmin % 60;
+                timedetailsinhrmin = hours+":"+minutes;
                 timedet.setText("Your order will be delivered within next "+hours+":"+minutes+" hours.");
             }
 
@@ -115,7 +136,7 @@ public class PaymentActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 progressDialog.show();
-                Call<DefaultResponse> call = RetrofitClient
+                /*Call<DefaultResponse> call = RetrofitClient
                         .getInstance().getApi().placeOrder(Global.email,Global.customer_id,"Cash On Delivery",pincode,shopid,total.getText().toString().trim()
                                 ,Integer.toString(shipingcost),Integer.toString(finalamt),add1,add2,add3,state,city);
                 call.enqueue(new Callback<DefaultResponse>() {
@@ -139,7 +160,9 @@ public class PaymentActivity extends AppCompatActivity {
                         Snackbar snackbar = Snackbar.make(rl, "Failed to process your request !", Snackbar.LENGTH_SHORT);
                         snackbar.show();
                     }
-                });
+                });*/
+                new PaymentActivity.placeOrder().execute(Global.email,Global.customer_id,"Cash On Delivery",pincode,shopid,total.getText().toString().trim()
+                        ,Integer.toString(shipingcost),Integer.toString(finalamt),add1,add2,add3,state,city);
             }
         });
 
@@ -151,5 +174,136 @@ public class PaymentActivity extends AppCompatActivity {
         });
 
         builder.show();
+    }
+
+
+    private class placeOrder extends AsyncTask<String, String, String> {
+        HttpURLConnection conn;
+        URL url = null;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            progressDialog.show();
+
+        }
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+
+                // Enter URL address where your php file resides
+                url = new URL(RetrofitClient.BASE_URL+"placeorder");
+
+            } catch (MalformedURLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+                return "exception";
+            }
+            try {
+                // Setup HttpURLConnection class to send and receive data from php and mysql
+                conn = (HttpURLConnection)url.openConnection();
+                conn.setReadTimeout(READ_TIMEOUT);
+                conn.setConnectTimeout(CONNECTION_TIMEOUT);
+                conn.setRequestMethod("POST");
+
+                // setDoInput and setDoOutput method depict handling of both send and receive
+                conn.setDoInput(true);
+                conn.setDoOutput(true);
+
+                // Append parameters to URL
+                Uri.Builder builder = new Uri.Builder()
+                        .appendQueryParameter("email",params[0])
+                        .appendQueryParameter("cid",params[1])
+                        .appendQueryParameter("payment_type",params[2])
+                        .appendQueryParameter("pincode",params[3])
+                        .appendQueryParameter("shopid",params[4])
+                        .appendQueryParameter("totalprice",params[5])
+                        .appendQueryParameter("shippingcost",params[6])
+                        .appendQueryParameter("finalprice",params[7])
+                        .appendQueryParameter("add1",params[8])
+                        .appendQueryParameter("add2",params[9])
+                        .appendQueryParameter("add3",params[10])
+                        .appendQueryParameter("state",params[11])
+                        .appendQueryParameter("city",params[12]);
+
+                String query = builder.build().getEncodedQuery();
+
+                // Open connection for sending data
+                OutputStream os = conn.getOutputStream();
+                BufferedWriter writer = new BufferedWriter(
+                        new OutputStreamWriter(os, "UTF-8"));
+                writer.write(query);
+                writer.flush();
+                writer.close();
+                os.close();
+                conn.connect();
+
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+                return "exception";
+            }
+
+            try {
+
+                int response_code = conn.getResponseCode();
+
+                // Check if successful connection made
+                if (response_code == HttpURLConnection.HTTP_OK) {
+
+                    // Read data sent from server
+                    InputStream input = conn.getInputStream();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+                    StringBuilder result = new StringBuilder();
+                    String line;
+
+                    while ((line = reader.readLine()) != null) {
+                        result.append(line);
+                    }
+
+                    // Pass data to onPostExecute method
+                    return(result.toString());
+
+                }else{
+
+                    return("unsuccessful");
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                return "exception";
+            } finally {
+                conn.disconnect();
+            }
+
+
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+
+            //this method will be running on UI thread
+
+            progressDialog.dismiss();
+            try {
+                JSONObject jobj = new JSONObject(result);
+
+                if(!jobj.getBoolean("error"))
+                {
+                    Intent intent = new Intent(PaymentActivity.this,OrderSuccess.class);
+                    intent.putExtra("orderid",jobj.getString("errormsg"));
+                    intent.putExtra("timedet",timedetailsinhrmin);
+                    startActivity(intent);
+
+                }else if (result.equalsIgnoreCase("oops! Please try again!")){
+                    Snackbar snackbar = Snackbar.make(rl, "Failed to process your request !", Snackbar.LENGTH_SHORT);
+                    snackbar.show();
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

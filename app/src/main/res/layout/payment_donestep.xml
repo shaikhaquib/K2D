@@ -5,14 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".activities.CustomerRegistration">
-
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dimen_16"
-        android:src="@drawable/ic_left_arrow"/>
+    tools:context=".activities.OrderSuccess">
 
     <TextView
         android:layout_width="wrap_content"
@@ -109,12 +102,11 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:id="@+id/continueshoping"
-        android:onClick="DoRegister"
         android:gravity="center"
         android:layout_margin="16dp"
         android:layout_gravity="center"
         android:background="@drawable/background"
-        android:text="Contineu Shoping"
+        android:text="Continue Shopping"
         android:layout_alignParentBottom="true"
         android:textColor="@color/white" />
 
