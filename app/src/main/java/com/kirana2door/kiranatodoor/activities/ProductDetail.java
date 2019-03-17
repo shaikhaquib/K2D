@@ -44,6 +44,7 @@ public class ProductDetail extends AppCompatActivity {
     Button addtocart;
     int count = 0,wt ;
     int minteger = 1;
+    ViewPager pager;
     ViewDialog progressDialog;
     List<ProductDetailsItem> proddet = new ArrayList<>();
     List<ProductImagesItem> prodimg = new ArrayList<>();
@@ -58,7 +59,7 @@ public class ProductDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
         progressDialog=new ViewDialog(ProductDetail.this);
-        ViewPager pager =   findViewById(R.id.photos_viewpager);
+         pager =   findViewById(R.id.photos_viewpager);
         quantity = findViewById(R.id.qty);
         minus =findViewById(R.id.minus);
         plus = findViewById(R.id.plus);
@@ -70,18 +71,8 @@ public class ProductDetail extends AppCompatActivity {
         quantity.setText(String.valueOf(minteger));
         price=findViewById(R.id.pprice);
 
-        VPagerAdapter adapter = new VPagerAdapter(getApplicationContext());
-        pager.setAdapter(adapter);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        tabLayout.setupWithViewPager(pager, true);
         getData();
-        for(int i=0; i < tabLayout.getTabCount(); i++) {
-            View tab = ((ViewGroup) tabLayout.getChildAt(0)).getChildAt(i);
-            ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) tab.getLayoutParams();
-            p.setMargins(0, 0, 15, 0);
-            tab.requestLayout();
-        }
 
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -194,7 +185,7 @@ public class ProductDetail extends AppCompatActivity {
                 //imageView.setImageResource(images[position]);
 
 
-                Glide.with(context).load(prodimg.get(position)).into(imageView);
+                Glide.with(context).load(prodimg.get(position).getProductImg()).into(imageView);
 
 
                 view.setOnClickListener(new View.OnClickListener() {
@@ -244,6 +235,19 @@ public class ProductDetail extends AppCompatActivity {
                 unit = pdi.getUnits();
                 wt = Integer.parseInt(pdi.getProductWeight());
                 prodimg = res.getProductImages();
+
+                VPagerAdapter adapter = new VPagerAdapter(getApplicationContext());
+                pager.setAdapter(adapter);
+
+                TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+                tabLayout.setupWithViewPager(pager, true);
+                for(int i=0; i < tabLayout.getTabCount(); i++) {
+                    View tab = ((ViewGroup) tabLayout.getChildAt(0)).getChildAt(i);
+                    ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) tab.getLayoutParams();
+                    p.setMargins(0, 0, 15, 0);
+                    tab.requestLayout();
+                }
+
 
             }
         }, new Response.ErrorListener() {
