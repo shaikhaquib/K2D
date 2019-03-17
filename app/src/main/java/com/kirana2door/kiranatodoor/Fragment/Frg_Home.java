@@ -36,6 +36,7 @@ import com.kirana2door.kiranatodoor.Global;
 import com.kirana2door.kiranatodoor.R;
 import com.kirana2door.kiranatodoor.ViewDialog;
 import com.kirana2door.kiranatodoor.ViewPagerAdapter;
+import com.kirana2door.kiranatodoor.activities.Home;
 import com.kirana2door.kiranatodoor.activities.Product_page;
 import com.kirana2door.kiranatodoor.api.Api;
 import com.kirana2door.kiranatodoor.api.AppController;
@@ -75,7 +76,7 @@ public class Frg_Home extends Fragment {
     List<ProdbanItem> prodbanItems = new ArrayList<>();
     List<StockistItem> stockistItems = new ArrayList<>();
     ViewDialog progressDialoge;
-
+    Home activity;
 
 
     int currentPage = 0;
@@ -89,6 +90,7 @@ public class Frg_Home extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.frg_home, null);
 
+        activity = (Home)getActivity();
         progressDialoge=new ViewDialog(getActivity());
         sliderDotspanel =  view.findViewById(R.id.catSliderDots);
         viewPager = view.findViewById(R.id.catviewPager);
@@ -258,7 +260,7 @@ public class Frg_Home extends Fragment {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map <String,String> param = new HashMap<String,String>();
                 param.put("custid",Global.customer_id);
-                param.put("stcode","0");
+                param.put("stcode",activity.getIntent().getStringExtra("id"));
                 return param;
             }
         };

@@ -5,4 +5,5 @@
     <color name="colorAccent">#98CA56</color>
     <color name="white">#ffffff</color>
     <color name="gray">#E8EAF6</color>
+    <color name="gtin">#ccffcc</color>
 </resources>
