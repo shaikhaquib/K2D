@@ -58,6 +58,9 @@
         <activity android:name=".activities.ForgotPassword" />
         <activity android:name=".activities.ForgotPassVerification" />
         <activity android:name=".activities.SetNewPassword" />
+        <activity android:name=".activities.BillingAddActivity" />
+        <activity android:name=".activities.PaymentActivity" />
+        <activity android:name=".activities.OrderSuccess" />
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package com.kirana2door.kiranatodoor.activities;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -39,6 +41,7 @@ public class CartProductList extends AppCompatActivity {
     RecyclerView recyclerView;
     int wt,price,tprice=0;
     TextView totalamt;
+    public Button checkout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,7 @@ public class CartProductList extends AppCompatActivity {
         progressDialog=new ViewDialog(CartProductList.this);
         ImageView prdback = findViewById(R.id.crtprd_back);
         totalamt = findViewById(R.id.totalamt);
+        checkout = findViewById(R.id.checkout);
         prdback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -155,6 +159,17 @@ public class CartProductList extends AppCompatActivity {
             } }
         );
         getData();
+
+        checkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CartProductList.this,BillingAddActivity.class);
+                intent.putExtra("shopid", getIntent().getStringExtra("shopid"));
+                intent.putExtra("totalp", Integer.toString(tprice));
+                intent.putExtra("totalitems", prodlist.size());
+                startActivity(intent);
+            }
+        });
     }
 
     private void getData() {

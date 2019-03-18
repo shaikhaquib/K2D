@@ -87,7 +87,7 @@ public class AboutUs extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/html");
-                String[] recipients={"info@kiran2door.com"};
+                String[] recipients={"info@kirana2door.com"};
                 intent.putExtra(Intent.EXTRA_EMAIL, recipients);
                 intent.putExtra(Intent.EXTRA_SUBJECT, "");
                 intent.putExtra(Intent.EXTRA_TEXT, "");
