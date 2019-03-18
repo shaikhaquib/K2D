@@ -116,7 +116,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Order History"
+                    android:text="Privacy Policy"
                     android:layout_marginTop="@dimen/font_20sp"
                     android:fontFamily="@font/maiandra_gd_regular"
                     android:textStyle="bold"

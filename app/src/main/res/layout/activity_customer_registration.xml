@@ -120,7 +120,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Address 1"
+                    android:hint="Flat / House no. / Floor / Building"
                     android:id="@+id/add1"
                     android:textColorHighlight="@color/colorPrimary"
                     android:layout_weight="8"
@@ -144,7 +144,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Address 2"
+                    android:hint="Colony / Street / Locality"
                     android:id="@+id/add2"
                     android:textColorHighlight="@color/colorPrimary"
                     android:layout_weight="8"
@@ -167,7 +167,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Address 2"
+                    android:hint="Landmark"
                     android:id="@+id/add3"
                     android:textColorHighlight="@color/colorPrimary"
                     android:layout_weight="8"

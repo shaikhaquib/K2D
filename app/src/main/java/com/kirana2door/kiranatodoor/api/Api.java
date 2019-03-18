@@ -55,8 +55,7 @@ public interface Api {
     @FormUrlEncoded
     @POST("resendotp")
     Call<DefaultResponse> resendOTP(
-            @Field("email") String emailid,
-            @Field("contact") String contact
+            @Field("email") String emailid
     );
 
     @FormUrlEncoded

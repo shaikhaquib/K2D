@@ -43,7 +43,7 @@ public class ContactVerification extends AppCompatActivity {
         }
 
         if (OTPPASS.length() < 4) {
-            otp.setError("Please enter password which we have sent to you !");
+            otp.setError("Please enter OTP which we have sent to you !");
             otp.requestFocus();
             return;
         }
@@ -69,7 +69,7 @@ public class ContactVerification extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<DefaultResponse> call, Throwable t) {
-                Toast.makeText(ContactVerification.this, "Failed to process your request !", Toast.LENGTH_LONG).show();
+                Toast.makeText(ContactVerification.this, "Wrong OTP !", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -77,7 +77,7 @@ public class ContactVerification extends AppCompatActivity {
     public void ReSendOTP(View arg){
 
         Call<DefaultResponse> call = RetrofitClient
-                .getInstance().getApi().resendOTP(emailid.trim(),"1234567890");
+                .getInstance().getApi().resendOTP(emailid.trim());
         call.enqueue(new Callback<DefaultResponse>() {
             @Override
             public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
