@@ -106,7 +106,8 @@ public interface Api {
     @POST("contactupdate")
     Call<DefaultResponse> contactUpdate(
             @Field("contact") String contact,
-            @Field("cust_id") String custid
+            @Field("cust_id") String custid,
+            @Field("email") String email
     );
 
     @FormUrlEncoded

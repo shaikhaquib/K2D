@@ -50,6 +50,7 @@ public class Home extends AppCompatActivity {
         progressDialoge=new ViewDialog(this);
         SharedPreferences mPrefs = getSharedPreferences("my_shared_preff",0);
         Global.customer_id = mPrefs.getString("id", "");
+        Global.email = mPrefs.getString("email", "");
         bottomNavigationView = findViewById(R.id.navigation);
         fab = findViewById(R.id.floating_button);
 

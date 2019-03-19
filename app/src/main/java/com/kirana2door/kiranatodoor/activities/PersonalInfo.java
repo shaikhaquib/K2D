@@ -57,13 +57,13 @@ public class PersonalInfo extends AppCompatActivity {
         String slname = lname.getText().toString().trim();
 
         if (sfname.isEmpty()) {
-            fname.setError("Email is required");
+            fname.setError("First name is required");
             fname.requestFocus();
             return;
         }
 
         if (slname.isEmpty()) {
-            lname.setError("Email is required");
+            lname.setError("Last name is required");
             lname.requestFocus();
             return;
         }

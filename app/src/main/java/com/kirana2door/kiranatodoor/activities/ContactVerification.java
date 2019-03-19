@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.alimuzaffar.lib.pin.PinEntryEditText;
 import com.kirana2door.kiranatodoor.R;
+import com.kirana2door.kiranatodoor.ViewDialog;
 import com.kirana2door.kiranatodoor.api.RetrofitClient;
 import com.kirana2door.kiranatodoor.models.DefaultResponse;
 
@@ -21,6 +22,7 @@ public class ContactVerification extends AppCompatActivity {
     private PinEntryEditText otp;
     private Button subotpbtn;
     private String emailid;
+    ViewDialog progress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +31,7 @@ public class ContactVerification extends AppCompatActivity {
 
         otp = findViewById(R.id.pinView);
         subotpbtn = findViewById(R.id.chkotp);
-
+        progress=new ViewDialog(this);
         emailid = getIntent().getStringExtra("emailid");
     }
 
@@ -47,14 +49,14 @@ public class ContactVerification extends AppCompatActivity {
             otp.requestFocus();
             return;
         }
-
+        progress.show();
         Call<DefaultResponse> call = RetrofitClient
                 .getInstance().getApi().verifyContactUpdate(OTPPASS);
         call.enqueue(new Callback<DefaultResponse>() {
             @Override
             public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
                 DefaultResponse defaultResponse = response.body();
-
+                progress.dismiss();
                 if (!defaultResponse.isError()) {
 
                     Intent intent = new Intent(ContactVerification.this, LoginActivity.class);
@@ -69,20 +71,21 @@ public class ContactVerification extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<DefaultResponse> call, Throwable t) {
+                progress.dismiss();
                 Toast.makeText(ContactVerification.this, "Wrong OTP !", Toast.LENGTH_LONG).show();
             }
         });
     }
 
     public void ReSendOTP(View arg){
-
+        progress.show();
         Call<DefaultResponse> call = RetrofitClient
                 .getInstance().getApi().resendOTP(emailid.trim());
         call.enqueue(new Callback<DefaultResponse>() {
             @Override
             public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
                 DefaultResponse defaultResponse = response.body();
-
+                progress.dismiss();
                 if (!defaultResponse.isError()) {
 
                     Toast.makeText(ContactVerification.this, defaultResponse.getErrormsg(), Toast.LENGTH_LONG).show();
@@ -94,6 +97,7 @@ public class ContactVerification extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<DefaultResponse> call, Throwable t) {
+                progress.dismiss();
                 Toast.makeText(ContactVerification.this, "Failed to process your request !", Toast.LENGTH_LONG).show();
             }
         });

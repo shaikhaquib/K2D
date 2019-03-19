@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
+import com.kirana2door.kiranatodoor.Global;
 import com.kirana2door.kiranatodoor.R;
 import com.kirana2door.kiranatodoor.ViewDialog;
 import com.kirana2door.kiranatodoor.api.RetrofitClient;
@@ -54,16 +55,12 @@ public class  UpdateContact extends AppCompatActivity {
             return;
         }
 
-        if(sphno.length() < 10){
+        if(sphno.length() != 10){
             contact.setError("Contact number is not valid");
             contact.requestFocus();
             return;
         }
-        if(sphno.length() > 10){
-            contact.setError("Contact number is not valid");
-            contact.requestFocus();
-            return;
-        }
+
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Are you sure want to change contact no. ?");
@@ -74,12 +71,13 @@ public class  UpdateContact extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 progress.show();
                 Call<DefaultResponse> call = RetrofitClient
-                        .getInstance().getApi().contactUpdate(contact.getText().toString().trim(),custid.trim());
+                        .getInstance().getApi().contactUpdate(contact.getText().toString().trim(),custid.trim(), Global.email);
                 call.enqueue(new Callback<DefaultResponse>() {
                     @Override
                     public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
                         DefaultResponse defaultResponse = response.body();
                         progress.dismiss();
+                        assert defaultResponse != null;
                         if (!defaultResponse.isError()) {
                             //SharedPreferences.Editor.clear().apply();
                             getSharedPreferences("personal_info_of_k2d_cust", MODE_PRIVATE).edit().clear().apply();

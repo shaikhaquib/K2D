@@ -58,25 +58,31 @@ public class ManageAddress extends AppCompatActivity {
         String spincode = pincode.getText().toString().trim();
 
         if (sadd1.isEmpty()) {
-            add1.setError("Email is required");
+            add1.setError("Address is required");
             add1.requestFocus();
             return;
         }
 
         if (sadd2.isEmpty()) {
-            add2.setError("Email is required");
+            add2.setError("Address is required");
             add2.requestFocus();
             return;
         }
 
         if (sadd3.isEmpty()) {
-            add3.setError("Email is required");
+            add3.setError("Address is required");
             add3.requestFocus();
             return;
         }
 
         if (spincode.isEmpty()) {
-            pincode.setError("Email is required");
+            pincode.setError("Pincode is required");
+            pincode.requestFocus();
+            return;
+        }
+
+        if (spincode.length()!=6) {
+            pincode.setError("Enter valid pincode");
             pincode.requestFocus();
             return;
         }

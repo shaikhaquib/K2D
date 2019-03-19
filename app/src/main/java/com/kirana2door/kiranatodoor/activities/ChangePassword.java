@@ -71,7 +71,7 @@ public class ChangePassword extends AppCompatActivity {
         }
 
         if (nconfpass.isEmpty()) {
-            confpass.setError("Please confirm password");
+            confpass.setError("Password is required");
             confpass.requestFocus();
             return;
         }
