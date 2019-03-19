@@ -27,6 +27,7 @@ import com.kirana2door.kiranatodoor.activities.LoginActivity;
 import com.kirana2door.kiranatodoor.activities.ManageAddress;
 import com.kirana2door.kiranatodoor.activities.OTPVerification;
 import com.kirana2door.kiranatodoor.activities.PersonalInfo;
+import com.kirana2door.kiranatodoor.activities.PrivacyPolicy;
 import com.kirana2door.kiranatodoor.activities.UpdateContact;
 import com.kirana2door.kiranatodoor.api.RetrofitClient;
 import com.kirana2door.kiranatodoor.models.MenuResponse;
@@ -41,7 +42,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class Frg_Menu extends Fragment {
 
-    TextView mnAccount , mnChangePassword, mnPersonalInfo, mnManageAddress, mnUpdateContact, mnaboutus;
+    TextView mnAccount , mnChangePassword, mnPersonalInfo, mnManageAddress, mnUpdateContact, mnaboutus, mnprivacy;
     LinearLayout mnLinearlayout;
     View mnAccountView;
     Boolean mnAccountLytState = false;
@@ -61,6 +62,7 @@ public class Frg_Menu extends Fragment {
         mnLinearlayout = view.findViewById(R.id.mnAccountLayout);
         mnAccountView =view.findViewById(R.id.mnAccountView);
         mnaboutus =view.findViewById(R.id.aboutus);
+        mnprivacy =view.findViewById(R.id.privacy);
         logout =view.findViewById(R.id.logout);
 
         mnChangePassword.setOnClickListener(new View.OnClickListener() {
@@ -95,6 +97,13 @@ public class Frg_Menu extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), AboutUs.class));
+            }
+        });
+
+        mnprivacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), PrivacyPolicy.class));
             }
         });
 
