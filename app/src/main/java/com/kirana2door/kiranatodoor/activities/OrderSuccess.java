@@ -22,12 +22,13 @@ public class OrderSuccess extends AppCompatActivity {
         orddet = findViewById(R.id.orderidtime);
         continueshopping = findViewById(R.id.continueshoping);
 
-        orddet.setText("Order ID is "+getIntent().getStringExtra("orderid")+" \\nWe will Deliver your order within 2-3 hour\\n Thank you for shopping with us");
+        orddet.setText("Order ID is "+getIntent().getStringExtra("orderid")+" \nWe will Deliver your order within 2-3 hour \n Thank you for shopping with us");
 
         continueshopping.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(OrderSuccess.this,Home.class);
+                intent.putExtra("id","0");
                 startActivity(intent);
             }
         });

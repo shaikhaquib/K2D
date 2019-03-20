@@ -14,7 +14,7 @@
         android:layout_centerHorizontal="true"
         android:textSize="@dimen/dimen_16"
         android:fontFamily="@font/maiandra_gd_regular"
-        android:text="STEP 2 : PAYMENT"/>
+        android:text="STEP 3 : Confirmation"/>
 
 
     <android.support.v4.widget.NestedScrollView
@@ -63,8 +63,13 @@
 
     </android.support.v4.widget.NestedScrollView>
 
-
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_marginTop="200dp"
+    >
     <ImageView
         android:id="@+id/img"
         android:layout_width="wrap_content"
@@ -82,6 +87,7 @@
         android:gravity="center"
         android:textSize="@dimen/font_20sp"
         android:layout_marginTop="4dp"
+        android:layout_marginBottom="15dp"
         android:textColor="@color/colorPrimary"
         android:fontFamily="@font/maiandra_gd_regular"
         android:text="PAYMENT COMPLETE" />
@@ -93,9 +99,11 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="0dp"
         android:id="@+id/orderidtime"
-        android:layout_marginBottom="238dp"
         android:gravity="center"
-        android:text="Order Id is #5479845 \nWe will Deliver your order within 2-3 hour\n Thank you for shoping with us" />
+        />
+
+</LinearLayout>
+
 
 
     <Button

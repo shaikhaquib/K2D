@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
@@ -80,8 +81,8 @@ public class CartProductList extends AppCompatActivity {
                 myHolder.prddesc.setText(model.getProductDiscription1());
                 price = Integer.parseInt(model.getProductPrice()) * Integer.parseInt(model.getProductQty());
                 myHolder.prdprice.setText("₹. "+price);
-                tprice = tprice + price;
-                totalamt.setText("₹."+Integer.toString(tprice));
+                //tprice = tprice + price;
+                //totalamt.setText("₹."+Integer.toString(tprice));
 
                 wt = Integer.parseInt(model.getProductWeight()) * Integer.parseInt(model.getProductQty());
                 myHolder.prdwtut.setText(wt+" "+model.getUnits());
@@ -163,11 +164,15 @@ public class CartProductList extends AppCompatActivity {
         checkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CartProductList.this,BillingAddActivity.class);
-                intent.putExtra("shopid", getIntent().getStringExtra("shopid"));
-                intent.putExtra("totalp", Integer.toString(tprice));
-                intent.putExtra("totalitems", prodlist.size());
-                startActivity(intent);
+                if(tprice>0) {
+                    Intent intent = new Intent(CartProductList.this, BillingAddActivity.class);
+                    intent.putExtra("shopid", getIntent().getStringExtra("shopid"));
+                    intent.putExtra("totalp", Integer.toString(tprice));
+                    intent.putExtra("totalitems", prodlist.size());
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(CartProductList.this,"No product in list to buy ?",Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
@@ -179,10 +184,18 @@ public class CartProductList extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 tprice=0;
+
+                int price1=0;
                 progressDialog.dismiss();
                 Gson gson = new Gson();
                 ProductListInCart res = gson.fromJson(response, ProductListInCart.class);
                 prodlist = res.getProductListInCart();
+                for(int i=0;i<prodlist.size();i++) {
+                    ProductListInCartItem modelx = prodlist.get(i);
+                    price1 = Integer.parseInt(modelx.getProductPrice()) * Integer.parseInt(modelx.getProductQty());
+                    tprice = tprice + price1;
+                }
+                totalamt.setText("₹."+Integer.toString(tprice));
                 recyclerView.getAdapter().notifyDataSetChanged();
 
             }
