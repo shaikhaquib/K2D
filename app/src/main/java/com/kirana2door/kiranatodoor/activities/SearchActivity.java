@@ -114,7 +114,7 @@ public class SearchActivity extends AppCompatActivity {
                     // InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                     // in.hideSoftInputFromWindow(searchText.getApplicationWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
                 }
-            }, 60); // 600ms delay before the timer executes the "run" method from TimerTask
+            }, 900); // 600ms delay before the timer executes the "run" method from TimerTask
         }
 
         @Override
