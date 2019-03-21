@@ -77,6 +77,8 @@ public class Frg_Home extends Fragment {
     List<StockistItem> stockistItems = new ArrayList<>();
     ViewDialog progressDialoge;
     Home activity;
+    TextView stockistname,stockisttime;
+    ImageView searchimg;
 
 
     int currentPage = 0;
@@ -95,6 +97,15 @@ public class Frg_Home extends Fragment {
         viewPager = view.findViewById(R.id.catviewPager);
         manualSlider = view.findViewById(R.id.manualSlider);
         rvOfferproduct = view.findViewById(R.id.rvOfferproduct);
+        stockistname = view.findViewById(R.id.stockistname);
+        stockisttime = view.findViewById(R.id.shoptiming);
+        searchimg = view.findViewById(R.id.search);
+        searchimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //todo aquib add serach event here
+            }
+        });
         rvOfferproduct.setNestedScrollingEnabled(false);
         rvCat = view.findViewById(R.id.rvCat);
         rvManualSlider = view.findViewById(R.id.rvManualSlider);
@@ -241,6 +252,12 @@ public class Frg_Home extends Fragment {
                 prodbanItems=ReMainResponse.getProdban();
                 stockistItems=ReMainResponse.getStockist();
                 Global.selshopid = stockistItems.get(0).getId();
+                stockistname.setText(stockistItems.get(0).getShopName());
+                if(!stockistItems.get(0).getStatus().equalsIgnoreCase("offline")){
+                    stockisttime.setText("Opens on : "+stockistItems.get(0).getOpeningtime().substring(0,5)+" "+stockistItems.get(0).getOampm()+" - "+stockistItems.get(0).getClosingtime().substring(0,5)+" "+stockistItems.get(0).getCampm());
+                }else{
+                    stockisttime.setText("Offline");
+                }
                 ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getActivity(),catbanItems,0);
                 manualSlider.setAdapter(viewPagerAdapter);
                 slider();
