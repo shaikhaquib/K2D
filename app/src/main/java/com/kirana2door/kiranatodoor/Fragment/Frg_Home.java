@@ -2,6 +2,9 @@ package com.kirana2door.kiranatodoor.Fragment;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -23,9 +26,11 @@ import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
@@ -52,6 +57,7 @@ import com.kirana2door.kiranatodoor.models.StockistItem;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -69,6 +75,8 @@ public class Frg_Home extends Fragment {
     LinearLayout sliderDotspanel;
     RecyclerView rvOfferproduct,rvCat,rvManualSlider;
     private int dotscount;
+    RequestQueue queue;
+    String currentversion;
     private ImageView[] dots;
     View parentLayout;
     List<BannerItem> bannerItems = new ArrayList<>();
@@ -93,6 +101,8 @@ public class Frg_Home extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.frg_home, null);
         activity = (Home)getActivity();
+        queue= Volley.newRequestQueue(activity);
+        update();
         progressDialoge=new ViewDialog(getActivity());
         sliderDotspanel =  view.findViewById(R.id.catSliderDots);
         viewPager = view.findViewById(R.id.catviewPager);
@@ -346,5 +356,65 @@ public class Frg_Home extends Fragment {
         }, DELAY_MS, PERIOD_MS);
     }
 
+    private void update() {
+        final StringRequest request = new StringRequest(StringRequest.Method.POST, RetrofitClient.BASE_URL + "isupdaterequire", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    PackageInfo pInfo = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0);
+                    currentversion = pInfo.versionName;
+                } catch (PackageManager.NameNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+                try {
+
+                    JSONObject jsonObject =new JSONObject(response);
+                    double newverison = Double.parseDouble(jsonObject.getString("version"));
+                    double verison = Double.parseDouble(currentversion);
+                    final String link = jsonObject.getString("link");
+
+                    if (verison < newverison){
+                        LayoutInflater layoutInflaterAndroid = LayoutInflater.from(getContext());
+                        View mView = layoutInflaterAndroid.inflate(R.layout.update, null);
+                        android.app.AlertDialog.Builder alertDialogBuilderUserInput = new android.app.AlertDialog.Builder(getContext());
+                        alertDialogBuilderUserInput.setView(mView);
+                        TextView button=mView.findViewById(R.id.updateappbtn);
+                        button.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(Intent.ACTION_VIEW);
+                                intent.setData(Uri.parse(link));
+                                startActivity(intent);
+                            }
+                        });
+                        final android.app.AlertDialog alertDialogAndroid = alertDialogBuilderUserInput.create();
+                        alertDialogAndroid.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                        alertDialogAndroid.setCancelable(false);
+                        alertDialogAndroid.show();
+                    }
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getContext(), "Connection problem !", Toast.LENGTH_SHORT).show();
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+
+                HashMap<String ,String> map = new HashMap<>();
+                map.put("product_id","2");
+                return map;
+            }
+        };
+        queue.add(request);
+    }
 
 }
