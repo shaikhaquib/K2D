@@ -351,7 +351,7 @@ public class SearchActivity extends AppCompatActivity {
     private void getData(final String searchquery) {
         //data variables call
         progressDialog.show();
-        StringRequest stringRequest = new StringRequest(StringRequest.Method.POST, RetrofitClient.BASE_URL+"productlist", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(StringRequest.Method.POST, RetrofitClient.BASE_URL+"searchproductofshop", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
@@ -371,9 +371,8 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map <String,String> param = new HashMap<String,String>();
-                param.put("categoryid", getIntent().getStringExtra("CatID"));
-                param.put("offset", Integer.toString(offset));
-                param.put("key", searchquery);
+                param.put("querystr", searchquery);
+                param.put("shopid", Global.selshopid);
                 return param;
             }
         };
