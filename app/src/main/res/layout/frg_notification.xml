@@ -3,14 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/orderview"
+        android:visibility="gone">
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvrHist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        />
 
+        />
+    </RelativeLayout>
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/nohistoru"
@@ -19,62 +23,60 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:visibility="visible">
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="20">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="22dp"
-            android:layout_marginTop="45dp"
             android:fontFamily="@font/maiandra_gd_regular"
+            android:layout_weight="2"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
             android:text="NO ORDER"
             android:textSize="@dimen/font_20sp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="67dp"
             android:fontFamily="@font/maiandra_gd_regular"
             android:text="PLACED YET!"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="3"
             android:textColor="#4E4D4D"
             android:textSize="24dp"
             android:textStyle="bold" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="153dp"
             android:fontFamily="@font/maiandra_gd_regular"
             android:text="PLEASE,"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="2"
             android:textSize="@dimen/dimen_16" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="174dp"
             android:fontFamily="@font/maiandra_gd_regular"
             android:text="ORDER SOMTHING"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="3"
             android:textColor="#4E4D4D"
             android:textSize="18dp"
             android:textStyle="bold" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="198dp"
             android:fontFamily="@font/maiandra_gd_regular"
+            android:layout_weight="3"
+            android:layout_marginLeft="20dp"
             android:text="@string/and_get_this_delivery_man_n_to_do_his_work"
             android:textSize="@dimen/dimen_16" />
 
@@ -82,28 +84,31 @@
         <ImageView
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginEnd="31dp"
-            android:layout_marginBottom="128dp"
             android:adjustViewBounds="true"
+            android:layout_weight="3"
+            android:layout_gravity="center"
+            android:padding="30dp"
             android:src="@drawable/ic_asset_4" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginBottom="40dp">
         <TextView
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="111dp"
-            android:layout_marginBottom="66dp"
             android:background="@drawable/round_gradient"
+            android:padding="10dp"
             android:gravity="center"
-            android:padding="@dimen/dimen_16"
-            android:text="OREDR NOW"
+            android:id="@+id/ordernow"
+            android:text="ORDER NOW"
             android:textColor="@color/white"
             android:textStyle="bold" />
-
+        </LinearLayout>
+        </LinearLayout>
     </RelativeLayout>
 
 

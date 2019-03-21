@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -22,6 +23,7 @@ import com.google.gson.Gson;
 import com.kirana2door.kiranatodoor.Global;
 import com.kirana2door.kiranatodoor.R;
 import com.kirana2door.kiranatodoor.ViewDialog;
+import com.kirana2door.kiranatodoor.activities.Home;
 import com.kirana2door.kiranatodoor.activities.SubOrder;
 import com.kirana2door.kiranatodoor.adapters.OrderHistoryList;
 import com.kirana2door.kiranatodoor.adapters.OrderHistoryListItem;
@@ -44,6 +46,8 @@ public class Frg_Notification extends Fragment {
     ViewDialog progressDialog;
     RecyclerView rvHist;
     LinkedHashMap map;
+    RelativeLayout orderview,orderErrorView;
+    TextView ordernow;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -55,6 +59,17 @@ public class Frg_Notification extends Fragment {
         map.put("Shipped",3);
         map.put("Delivered",4);
         rvHist = view.findViewById(R.id.rvrHist);
+        orderview = view.findViewById(R.id.orderview);
+        orderErrorView = view.findViewById(R.id.nohistoru);
+        ordernow = view.findViewById(R.id.ordernow);
+
+        ordernow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Home.class);
+                startActivity(intent);
+            }
+        });
         rvHist.setLayoutManager(new LinearLayoutManager(getActivity()));
         rvHist.setAdapter(new RecyclerView.Adapter() {
             @NonNull
@@ -141,6 +156,15 @@ public class Frg_Notification extends Fragment {
                 OrderHistoryList res = gson.fromJson(response, OrderHistoryList.class);
                 ordlist = res.getOrderHistoryList();
                 rvHist.getAdapter().notifyDataSetChanged();
+
+                if (ordlist.size() == 0) {
+                    orderview.setVisibility(View.GONE);
+                    orderErrorView.setVisibility(View.VISIBLE);
+                }else {
+                    orderview.setVisibility(View.VISIBLE);
+                    orderErrorView.setVisibility(View.GONE);
+                }
+
 
             }
         }, new Response.ErrorListener() {

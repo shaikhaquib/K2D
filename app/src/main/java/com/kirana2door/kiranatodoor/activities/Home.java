@@ -51,7 +51,10 @@ public class Home extends AppCompatActivity {
         SharedPreferences mPrefs = getSharedPreferences("my_shared_preff",0);
         Global.customer_id = mPrefs.getString("id", "");
         Global.email = mPrefs.getString("email", "");
-        Global.selshopid = "0";
+
+        if(Global.selshopid == null) {
+            Global.selshopid = "0";
+        }
         bottomNavigationView = findViewById(R.id.navigation);
         fab = findViewById(R.id.floating_button);
 

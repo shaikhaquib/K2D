@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#6AE3F2FD"
+    android:background="@drawable/ic_kirana2door_ui_ux"
     tools:context=".activities.SearchActivity">
 
     <android.support.v7.widget.CardView
