@@ -22,7 +22,8 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup">
-        <activity android:name=".activities.PrivacyPolicy"></activity>
+        <activity android:name=".activities.SearchActivity"></activity>
+        <activity android:name=".activities.PrivacyPolicy" />
 
         <uses-library
             android:name="org.apache.http.legacy"

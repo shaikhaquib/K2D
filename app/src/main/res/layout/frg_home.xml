@@ -17,18 +17,18 @@
 
 
         <android.support.v4.view.ViewPager
-        android:id="@+id/catviewPager"
-        android:layout_width="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_height="150dp"/>
+            android:id="@+id/catviewPager"
+            android:layout_width="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_height="150dp"/>
 
-    <LinearLayout
-        android:id="@+id/catSliderDots"
-        android:orientation="horizontal"
-        android:layout_marginTop="-35dp"
-        android:gravity="center_vertical|center_horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:id="@+id/catSliderDots"
+            android:orientation="horizontal"
+            android:layout_marginTop="-35dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
         <android.support.v4.view.ViewPager
             android:id="@+id/manualSlider"
@@ -49,52 +49,52 @@
             android:layout_marginTop="40dp"
             android:layout_marginBottom="@dimen/dimen_16"/>
 
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_margin="@dimen/padding_10">
-
-        <LinearLayout
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="200dp"
+            android:layout_margin="@dimen/padding_10">
 
-
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/maiandra_gd_regular"
+                        android:textSize="14sp"
+                        android:layout_margin="@dimen/padding_10"
+                        android:text="OFFER ON PRODUCT"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/maiandra_gd_regular"
+                        android:textSize="12sp"
+                        android:layout_margin="@dimen/padding_10"
+                        android:visibility="gone"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_alignParentRight="true"
+                        android:text="MORE"/>
+
+
+
+                </RelativeLayout>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvOfferproduct"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/maiandra_gd_regular"
-                    android:textSize="14sp"
-                    android:layout_margin="@dimen/padding_10"
-                    android:text="OFFER ON PRODUCT"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/maiandra_gd_regular"
-                    android:textSize="12sp"
-                    android:layout_margin="@dimen/padding_10"
-                    android:visibility="gone"
-                    android:textColor="@color/colorPrimary"
-                    android:layout_alignParentRight="true"
-                    android:text="MORE"/>
+                    />
 
 
+            </LinearLayout>
 
-            </RelativeLayout>
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rvOfferproduct"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
-
-
-        </LinearLayout>
-
-    </android.support.v7.widget.CardView>
+        </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rvCat"

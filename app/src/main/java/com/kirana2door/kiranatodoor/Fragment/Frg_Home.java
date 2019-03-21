@@ -44,6 +44,7 @@ import com.kirana2door.kiranatodoor.ViewPagerAdapter;
 import com.kirana2door.kiranatodoor.activities.Home;
 import com.kirana2door.kiranatodoor.activities.ProductDetail;
 import com.kirana2door.kiranatodoor.activities.Product_page;
+import com.kirana2door.kiranatodoor.activities.SearchActivity;
 import com.kirana2door.kiranatodoor.api.Api;
 import com.kirana2door.kiranatodoor.api.AppController;
 import com.kirana2door.kiranatodoor.api.RetrofitClient;
@@ -114,7 +115,7 @@ public class Frg_Home extends Fragment {
         searchimg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //todo aquib add serach event here
+                startActivity(new Intent(getActivity(), SearchActivity.class));
             }
         });
         rvOfferproduct.setNestedScrollingEnabled(false);
