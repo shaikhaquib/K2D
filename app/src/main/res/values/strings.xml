@@ -8,6 +8,7 @@
     <string name="cart">Cart</string>
     <string name="menu">Menu</string>
     <string name="out_dated_version_of_our_app">OUT-DATED VERSION \nOF OUR APP.</string>
+    <string name="and_get_this_delivery_man_n_to_do_his_work">AND GET THIS DELIVERY MAN  \n TO DO HIS WORK</string>
 
     <string-array name="status">
         <item>Order\nReceived</item>
