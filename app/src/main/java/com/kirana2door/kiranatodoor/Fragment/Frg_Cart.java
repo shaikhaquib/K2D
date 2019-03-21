@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -25,6 +26,7 @@ import com.kirana2door.kiranatodoor.Global;
 import com.kirana2door.kiranatodoor.R;
 import com.kirana2door.kiranatodoor.ViewDialog;
 import com.kirana2door.kiranatodoor.activities.CartProductList;
+import com.kirana2door.kiranatodoor.activities.Home;
 import com.kirana2door.kiranatodoor.adapters.StockistListInCart;
 import com.kirana2door.kiranatodoor.adapters.StockistListInCartItem;
 import com.kirana2door.kiranatodoor.api.AppController;
@@ -40,6 +42,7 @@ public class Frg_Cart extends Fragment {
     RecyclerView rv_cart;
     List<StockistListInCartItem> slci = new ArrayList<>();
     LinearLayout CartView , ErrorView;
+    Button additem,addmore;
     ViewDialog progressDialog;
     /*String[] prd_img = {
         "https://www.bigbasket.com/media/uploads/p/s/40112512_2-bb-royal-medjool-dates.jpg",
@@ -61,6 +64,23 @@ public class Frg_Cart extends Fragment {
         rv_cart = view.findViewById(R.id.rv_cart);
         CartView = view.findViewById(R.id.cartView);
         ErrorView = view.findViewById(R.id.cartError);
+        additem = view.findViewById(R.id.additem);
+        addmore = view.findViewById(R.id.addmore);
+
+        additem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Home.class);
+                startActivity(intent);
+            }
+        });
+        addmore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Home.class);
+                startActivity(intent);
+            }
+        });
         rv_cart.setNestedScrollingEnabled(false);
         rv_cart.setLayoutManager(new LinearLayoutManager(getActivity()));
 

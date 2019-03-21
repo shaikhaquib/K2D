@@ -28,7 +28,6 @@ public class OrderSuccess extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(OrderSuccess.this,Home.class);
-                intent.putExtra("id","0");
                 startActivity(intent);
             }
         });

@@ -81,8 +81,8 @@ public class Frg_Store extends Fragment {
                 myHolder.dmenu.setTag(i);
                 myHolder.card.setTag(i);
 
-
-                if (activity.getIntent().getStringExtra("id").equals(model.getId())){
+//activity.getIntent().getStringExtra("id")
+                if (Global.selshopid.equals(model.getId())){
                     myHolder.card.setCardBackgroundColor(Color.parseColor("#ccffcc"));
                 //    myHolder.img.setColorFilter(ContextCompat.getColor(getActivity(), R.color.gtin), android.graphics.PorterDuff.Mode.SRC_IN);
 
@@ -93,7 +93,8 @@ public class Frg_Store extends Fragment {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(getActivity(), Home.class);
-                        intent.putExtra("id",model.getId());
+                        //intent.putExtra("id",model.getId());
+                        Global.selshopid = model.getId();
                         startActivity(intent);
 
                     }

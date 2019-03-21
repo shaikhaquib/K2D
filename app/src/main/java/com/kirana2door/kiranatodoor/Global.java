@@ -44,6 +44,7 @@ public class Global {
     public static String camp_start_date= null;
     public static String camp_end_date  = null;
     public static String campaign_purpose = null;
+    public static String selshopid = null;
 
 
     public static int notificationcount = 0;

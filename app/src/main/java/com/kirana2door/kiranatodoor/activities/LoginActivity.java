@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.kirana2door.kiranatodoor.Global;
 import com.kirana2door.kiranatodoor.R;
 import com.kirana2door.kiranatodoor.ViewDialog;
 import com.kirana2door.kiranatodoor.api.RetrofitClient;
@@ -92,7 +93,8 @@ public class LoginActivity extends AppCompatActivity {
                                 .saveUser(loginResponse.getUser());
 
                         Intent intent = new Intent(LoginActivity.this, Home.class);
-                        intent.putExtra("id","0");
+                        //intent.putExtra("id","0");
+                        Global.selshopid = "0";
                         startActivity(intent);
                     }else if(loginResponse.getMessage().equalsIgnoreCase("UPDATED")){
                         Intent intent = new Intent(LoginActivity.this, ContactVerification.class);

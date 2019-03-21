@@ -89,7 +89,6 @@ public class Frg_Home extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.frg_home, null);
-
         activity = (Home)getActivity();
         progressDialoge=new ViewDialog(getActivity());
         sliderDotspanel =  view.findViewById(R.id.catSliderDots);
@@ -241,7 +240,7 @@ public class Frg_Home extends Fragment {
                 catItems=ReMainResponse.getCat();
                 prodbanItems=ReMainResponse.getProdban();
                 stockistItems=ReMainResponse.getStockist();
-
+                Global.selshopid = stockistItems.get(0).getId();
                 ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getActivity(),catbanItems,0);
                 manualSlider.setAdapter(viewPagerAdapter);
                 slider();
@@ -260,7 +259,8 @@ public class Frg_Home extends Fragment {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map <String,String> param = new HashMap<String,String>();
                 param.put("custid",Global.customer_id);
-                param.put("stcode",activity.getIntent().getStringExtra("id"));
+                //param.put("stcode",activity.getIntent().getStringExtra("id"));
+                param.put("stcode",Global.selshopid);
                 return param;
             }
         };

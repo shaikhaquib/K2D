@@ -49,11 +49,11 @@ public class ProductDetail extends AppCompatActivity {
     List<ProductDetailsItem> proddet = new ArrayList<>();
     List<ProductImagesItem> prodimg = new ArrayList<>();
 
-    String[] prd_img = {
+    /*String[] prd_img = {
             "https://www.bigbasket.com/media/uploads/p/s/40112512_2-bb-royal-medjool-dates.jpg",
             "https://www.bigbasket.com/media/uploads/p/s/40072455_5-bb-royal-organic-kabuli-chanachanna.jpg",
             "https://www.bigbasket.com/media/uploads/p/s/40112523_2-bb-royal-dried-fruit-blueberries.jpg"
-    };
+    };*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

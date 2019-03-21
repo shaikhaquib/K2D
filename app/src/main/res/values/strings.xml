@@ -10,14 +10,14 @@
     <string name="out_dated_version_of_our_app">OUT-DATED VERSION \nOF OUR APP.</string>
 
     <string-array name="status">
-        <item>order\nconfirmation</item>
-        <item>Dispatched</item>
-        <item>Ready to\nDeliver</item>
-        <item>Delivered</item>
+        <item>Order\nReceived</item>
+        <item>Order\nPacked</item>
+        <item>Order\nShipped</item>
+        <item>Order\nDelivered</item>
     </string-array>
     <string-array name="checkout">
-        <item>Billing Address</item>
+        <item>Billing \nInformation</item>
         <item>Payment</item>
-        <item>Confirm</item>
+        <item>Confirmation</item>
     </string-array>
 </resources>

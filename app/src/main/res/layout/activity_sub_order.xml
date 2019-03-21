@@ -103,7 +103,7 @@
                         android:layout_gravity="center"
                         app:cardCornerRadius="8dp"
                         android:id="@+id/returnbtnvi"
-                        android:visibility="visible"
+                        android:visibility="gone"
                         app:cardBackgroundColor="#d2672a">
 
                         <TextView
