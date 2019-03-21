@@ -37,6 +37,7 @@ import com.kirana2door.kiranatodoor.R;
 import com.kirana2door.kiranatodoor.ViewDialog;
 import com.kirana2door.kiranatodoor.ViewPagerAdapter;
 import com.kirana2door.kiranatodoor.activities.Home;
+import com.kirana2door.kiranatodoor.activities.ProductDetail;
 import com.kirana2door.kiranatodoor.activities.Product_page;
 import com.kirana2door.kiranatodoor.activities.SearchActivity;
 import com.kirana2door.kiranatodoor.api.Api;
@@ -124,9 +125,15 @@ public class Frg_Home extends Fragment {
             @Override
             public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
                 Holder holder = (Holder)viewHolder;
-
-                Glide.with(getActivity()).load(catbanItems.get(i).getOffpicPath()).into(holder.Slide);
-
+                final CatbanItem model = catbanItems.get(i);
+                Glide.with(getActivity()).load(model.getOffpicPath()).into(holder.Slide);
+                holder.itemView.setTag(i);
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(getActivity(), Product_page.class).putExtra("CatID",model.getOffcategoryid()));
+                    }
+                });
             }
 
             @Override
@@ -163,7 +170,18 @@ public class Frg_Home extends Fragment {
                 final ProdbanItem model = prodbanItems.get(i);
                 Glide.with(getActivity()).load(model.getOffpicPath()).into(myHolder.img);
                 myHolder.prdname.setText(model.getProduct_name());
-
+                myHolder.itemView.setTag(i);
+                myHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getActivity(), ProductDetail.class);
+                        intent.putExtra("product_id",model.getOffproductid());
+                        intent.putExtra("shop_id",model.getShopId());
+                        intent.putExtra("qty","1");
+                        startActivity(intent);
+                        //startActivity(new Intent(getActivity(), Product_page.class).putExtra("CatID",model.getOffcategoryid()));
+                    }
+                });
 
             }
 
