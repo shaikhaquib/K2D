@@ -71,7 +71,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 
 public class Frg_Home extends Fragment {
-
+    int currentIndex=0;
     ViewPager viewPager,manualSlider;
     LinearLayout sliderDotspanel;
     RecyclerView rvOfferproduct,rvCat,rvManualSlider;
@@ -338,16 +338,21 @@ public class Frg_Home extends Fragment {
         BannerSlider viewPagerAdapter = new BannerSlider(getActivity(),bannerItems,1);
         viewPager.setAdapter(viewPagerAdapter);
 
-        final Handler handler = new Handler();
-        final Runnable Update = new Runnable() {
-            public void run() {
-                if (currentPage == dotscount) {
-                    currentPage = 0;
-                }
-                viewPager.setCurrentItem(currentPage++, true);
-            }
-        };
 
+
+
+
+     final Handler handler = new Handler();
+            final Runnable Update = new Runnable() {
+                public void run() {
+                    if((currentIndex+1)>bannerItems.size() ){
+                        currentIndex=0;
+                    }else{
+                        currentIndex++;
+                    }
+                    viewPager.setCurrentItem(currentIndex);
+                }
+            };
         timer = new Timer(); // This will create a new Thread
         timer.schedule(new TimerTask() { // task to be scheduled
             @Override

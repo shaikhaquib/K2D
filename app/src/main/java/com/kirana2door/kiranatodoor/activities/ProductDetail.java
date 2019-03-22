@@ -59,7 +59,7 @@ public class ProductDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
         progressDialog=new ViewDialog(ProductDetail.this);
-         pager =   findViewById(R.id.photos_viewpager);
+        pager =   findViewById(R.id.photos_viewpager);
         quantity = findViewById(R.id.qty);
         minus =findViewById(R.id.minus);
         plus = findViewById(R.id.plus);
