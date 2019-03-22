@@ -61,7 +61,7 @@ public class ProductDetail extends AppCompatActivity {
         setContentView(R.layout.activity_product_detail);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         progressDialog=new ViewDialog(ProductDetail.this);
-         pager =   findViewById(R.id.photos_viewpager);
+        pager =   findViewById(R.id.photos_viewpager);
         quantity = findViewById(R.id.qty);
         minus =findViewById(R.id.minus);
         plus = findViewById(R.id.plus);

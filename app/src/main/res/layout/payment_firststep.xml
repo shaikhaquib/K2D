@@ -11,29 +11,34 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dimen_16"
+        android:padding="@dimen/padding_10"
         android:id="@+id/prd_back"
+        android:onClick="back"
         android:src="@drawable/ic_left_arrow"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dimen_16"
+        android:layout_margin="@dimen/padding_10"
         android:layout_centerHorizontal="true"
+        android:gravity="center|center_vertical"
         android:textSize="@dimen/dimen_16"
         android:fontFamily="@font/maiandra_gd_regular"
         android:text="STEP 1 : BILLING ADDRESS"/>
 
 
-    <android.support.v4.widget.NestedScrollView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_margin="16dp"
-        android:layout_height="wrap_content">
+        android:layout_below="@+id/prd_back"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:paddingBottom="50dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="50dp"
             android:orientation="vertical">
 
             <params.com.stepview.StatusViewScroller
@@ -41,7 +46,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="8dp"
                 android:entries="@array/checkout"
                 app:circleColor="@color/gray"
                 app:circleColorCurrent="@color/gray"
@@ -305,6 +309,7 @@
                     android:inputType="number"
                     android:maxLength="10"
                     android:layout_marginTop="8dp"
+                    android:layout_marginBottom="80dp"
                     />
 
             </android.support.design.widget.TextInputLayout>
@@ -317,7 +322,7 @@
 
         </LinearLayout>
 
-    </android.support.v4.widget.NestedScrollView>
+    </ScrollView>
     <Button
         android:layout_width="match_parent"
         android:layout_height="40dp"
