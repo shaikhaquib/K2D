@@ -22,21 +22,31 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup">
-        <activity android:name=".activities.SearchActivity"></activity>
-        <activity android:name=".activities.PrivacyPolicy" />
+        <activity android:name=".activities.SearchActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".activities.PrivacyPolicy"
+            android:screenOrientation="portrait"/>
 
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
 
-        <activity android:name=".activities.StockistDetail" />
-        <activity android:name=".activities.SubOrder" />
-        <activity android:name=".activities.AboutUs" />
-        <activity android:name=".activities.ContactVerification" />
-        <activity android:name=".activities.UpdateContact" />
-        <activity android:name=".activities.ManageAddress" />
-        <activity android:name=".activities.PersonalInfo" />
-        <activity android:name=".activities.ProductDetail" />
+        <activity android:name=".activities.StockistDetail"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.SubOrder"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.AboutUs"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.ContactVerification"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.UpdateContact"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.ManageAddress"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.PersonalInfo"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.ProductDetail"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activities.SplashScreen"
             android:screenOrientation="portrait">
@@ -46,9 +56,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.CartProductList" />
-        <activity android:name=".activities.Product_page" />
-        <activity android:name=".activities.ChangePassword" />
+        <activity android:name=".activities.CartProductList"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.Product_page"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.ChangePassword"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activities.LoginActivity"
             android:screenOrientation="portrait"
@@ -56,14 +69,22 @@
         <activity
             android:name=".activities.Home"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.CustomerRegistration" />
-        <activity android:name=".activities.OTPVerification" />
-        <activity android:name=".activities.ForgotPassword" />
-        <activity android:name=".activities.ForgotPassVerification" />
-        <activity android:name=".activities.SetNewPassword" />
-        <activity android:name=".activities.BillingAddActivity" />
-        <activity android:name=".activities.PaymentActivity" />
-        <activity android:name=".activities.OrderSuccess" />
+        <activity android:name=".activities.CustomerRegistration"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.OTPVerification"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.ForgotPassword"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.ForgotPassVerification"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.SetNewPassword"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.BillingAddActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.PaymentActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activities.OrderSuccess"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

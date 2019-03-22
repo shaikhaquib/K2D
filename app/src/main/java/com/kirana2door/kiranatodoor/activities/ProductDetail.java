@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -58,6 +59,7 @@ public class ProductDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         progressDialog=new ViewDialog(ProductDetail.this);
          pager =   findViewById(R.id.photos_viewpager);
         quantity = findViewById(R.id.qty);
@@ -266,4 +268,12 @@ public class ProductDetail extends AppCompatActivity {
         AppController.getInstance().addToRequestQueue(stringRequest);
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                super.onBackPressed();
+                break;
+        } return true;
+    }
 }

@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginTop="86dp"
+        android:layout_marginTop="66dp"
         android:adjustViewBounds="true"
         android:src="@drawable/ic_logo" />
 
