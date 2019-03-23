@@ -40,7 +40,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:id="@+id/shopname"
-                android:text="STOCKIST NAME"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -48,7 +47,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/ownername"
-                android:text="Shop : D-MART Service"
                 android:textSize="@dimen/font_15sp" />
 
             <TextView
@@ -56,7 +54,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/font_10sp"
                 android:id="@+id/timing"
-                android:text="Time : 10 AM to 10 PM"
                 android:textSize="@dimen/dimen_16"
                 android:padding="12dp"
                 android:background="@drawable/border"/>
@@ -125,7 +122,6 @@
                     android:padding="@dimen/dimen_16"
                     android:gravity="center"
                     android:id="@+id/comadd"
-                    android:text="DMart is a chain of hypermarkets in India founded by Radhakishan Damani in the year 2002. As of October 2018, it had 160 stores across India in the states of Maharashtra, Andhra Pradesh, Telangana, Gujarat, Madhya Pradesh, Chhattisgarh, Rajasthan, National Capital Region, Tamil Nadu, Karnataka and Punjab."
                     android:background="#90E6E8EE"/>
             </LinearLayout>
 

@@ -409,7 +409,7 @@ public class Frg_Home extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getContext(), "Connection problem !", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Unable to check updates !", Toast.LENGTH_SHORT).show();
             }
         }){
             @Override

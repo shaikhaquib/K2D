@@ -72,7 +72,6 @@
         android:layout_marginRight="30dp"
         android:layout_marginBottom="68dp"
         android:fontFamily="@font/maiandra_gd_regular"
-        android:text="297.00"
         android:textStyle="bold"
         android:textSize="@dimen/font_20sp" />
 

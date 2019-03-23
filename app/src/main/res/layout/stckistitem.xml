@@ -49,7 +49,7 @@
             android:drawablePadding="2dp"
             android:gravity="center"
             android:textStyle="bold"
-            android:text="Panvel-410206" />
+            />
 
 
     </RelativeLayout>
@@ -62,7 +62,6 @@
         android:backgroundTint="@color/colorPrimary"
         android:layout_gravity="bottom"
         android:id="@+id/stname"
-        android:text="Stockist Name"
         android:gravity="center"
         android:textSize="@dimen/dimen_16"
         android:textStyle="bold"

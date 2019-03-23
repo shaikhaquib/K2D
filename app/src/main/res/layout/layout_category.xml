@@ -29,7 +29,6 @@
             android:layout_centerHorizontal="true"
             android:fontFamily="@font/maiandra_gd_regular"
             android:paddingLeft="50dp"
-            android:text="Product Name"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -43,7 +42,6 @@
             android:layout_marginLeft="50dp"
             android:fontFamily="@font/maiandra_gd_regular"
             android:paddingLeft="50dp"
-            android:text="Product Name"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold" />

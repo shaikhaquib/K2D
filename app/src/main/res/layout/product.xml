@@ -32,7 +32,6 @@
                 android:id="@+id/product_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Product Name"
                 android:fontFamily="@font/maiandra_gd_regular"
                 android:textColor="#919191"
                 android:textSize="@dimen/font_15sp"/>
@@ -40,7 +39,6 @@
                 android:id="@+id/product_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Product Name"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/maiandra_gd_regular"
                 android:textColor="#919191"
@@ -55,7 +53,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="₹ 150"
                     android:id="@+id/product_price"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -69,7 +66,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="0dp"
                     android:textAlignment="textEnd"
-                    android:text="Quantity" />
+                    />
             </LinearLayout>
 
             <RelativeLayout
@@ -84,7 +81,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Quantity - "
                         android:fontFamily="@font/maiandra_gd_regular"
                         android:textColor="#919191"
                         android:textSize="@dimen/font_15sp"/>
@@ -94,7 +90,7 @@
                         android:id="@+id/qty"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" 50 "/>
+                        />
 
 
                 </LinearLayout>

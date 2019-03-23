@@ -24,7 +24,7 @@
             android:textSize="16dp"
             android:layout_marginTop="@dimen/padding_10"
             android:fontFamily="@font/maiandra_gd_regular"
-            android:text="Product Name"/>
+            />
 
 
     </LinearLayout>

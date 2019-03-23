@@ -164,8 +164,6 @@ public class Frg_Notification extends Fragment {
                     orderview.setVisibility(View.VISIBLE);
                     orderErrorView.setVisibility(View.GONE);
                 }
-
-
             }
         }, new Response.ErrorListener() {
             @Override
