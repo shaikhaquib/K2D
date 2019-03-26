@@ -42,6 +42,7 @@ public class Product_page extends AppCompatActivity {
     int cal2,cal3;
     int offset = 0;
     ViewDialog progressDialog;
+    int itmcnt = 0;
     //private EndlessRecyclerOnScrollListener mScrollListener = null;
     private SwipeRefreshLayout mSwipeRefreshLayout = null;
 
@@ -61,6 +62,8 @@ public class Product_page extends AppCompatActivity {
        });
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
+
+        itmcnt = Integer.parseInt(getIntent().getStringExtra("itmcnt"));
         //recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
         // enable pull up for endless loading

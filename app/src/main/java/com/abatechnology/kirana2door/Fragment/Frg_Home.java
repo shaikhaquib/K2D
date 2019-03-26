@@ -221,7 +221,10 @@ public class Frg_Home extends Fragment {
                 myHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(getActivity(), Product_page.class).putExtra("CatID",model.getCategoryId()));
+                        Intent intent = new Intent(getActivity(),Product_page.class);
+                        intent.putExtra("CatID",model.getCategoryId());
+                        intent.putExtra("itmcnt",model.getCnt());
+                        startActivity(intent);
                     }
                 });
 
