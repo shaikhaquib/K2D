@@ -43,6 +43,7 @@ public class Product_page extends AppCompatActivity {
     int offset = 0;
     ViewDialog progressDialog;
     int itmcnt = 0;
+    boolean loadmoreflg = true;
     //private EndlessRecyclerOnScrollListener mScrollListener = null;
     private SwipeRefreshLayout mSwipeRefreshLayout = null;
 
@@ -87,6 +88,7 @@ public class Product_page extends AppCompatActivity {
             public void onRefresh() {
                 // do something
                 getData();
+                loadmoreflg = true;
                 // after refresh is done, remember to call the following code
                 if (mSwipeRefreshLayout != null && mSwipeRefreshLayout.isRefreshing()) {
                     mSwipeRefreshLayout.setRefreshing(false);  // This hides the spinner
@@ -103,7 +105,8 @@ public class Product_page extends AppCompatActivity {
                 int totalItemCount = layoutManager.getItemCount();
                 int firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition();
 
-                if ((visibleItemCount + firstVisibleItemPosition) >= totalItemCount && firstVisibleItemPosition >= 0) {
+                if ((visibleItemCount + firstVisibleItemPosition) >= totalItemCount && firstVisibleItemPosition >= 0 && loadmoreflg) {
+                    loadmoreflg = false;
                     offset = offset + 10;
                     getData();
                 }
@@ -306,7 +309,8 @@ public class Product_page extends AppCompatActivity {
                 progressDialog.dismiss();
                 Gson gson = new Gson();
                 ProductList res = gson.fromJson(response, ProductList.class);
-                prodlist = res.getProductList();
+                prodlist.addAll(res.getProductList());// = res.getProductList();
+                loadmoreflg = true;
                 recyclerView.getAdapter().notifyDataSetChanged();
 
             }
