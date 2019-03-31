@@ -91,7 +91,7 @@ public class SubOrder extends AppCompatActivity {
                 myHolder.prddesc.setText(model.getProductDiscription1());
                 myHolder.prdprice.setText("₹. "+model.getOrderProductPrice());
                 int qty = Integer.parseInt(model.getCurrentProductWeight()) * Integer.parseInt(model.getQuantity());
-                myHolder.prodqty.setText(Integer.toString(qty)+" "+model.getCurrentProductUnit());
+                myHolder.prodqty.setText("Qty - "+Integer.toString(qty)+" "+model.getCurrentProductUnit());
 
             }
 

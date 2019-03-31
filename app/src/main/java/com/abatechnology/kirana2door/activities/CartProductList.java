@@ -86,7 +86,7 @@ public class CartProductList extends AppCompatActivity {
 
                 wt = Integer.parseInt(model.getProductWeight()) * Integer.parseInt(model.getProductQty());
                 myHolder.prdwtut.setText(wt+" "+model.getUnits());
-                myHolder.prdqnt.setText(model.getProductQty());
+                myHolder.prdqnt.setText("Qty - "+model.getProductQty());
 
                 myHolder.removefromcart.setOnClickListener(new View.OnClickListener() {
                     @Override

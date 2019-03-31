@@ -29,8 +29,7 @@
                 <ImageView
                     android:id="@+id/logo_img"
                     android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="#2D919191" />
+                    android:layout_height="100dp" />
 
 
                 <LinearLayout

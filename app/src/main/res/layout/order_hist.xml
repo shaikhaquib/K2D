@@ -17,8 +17,7 @@
             android:id="@+id/product_img"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:background="#2D919191"/>
+            android:layout_gravity="center"/>
 
 
         <LinearLayout
