@@ -42,7 +42,7 @@ public class Product_page extends AppCompatActivity {
     int cal2,cal3;
     int offset = 0;
     ViewDialog progressDialog;
-    int itmcnt = 0;
+    //int itmcnt = 0;
     boolean loadmoreflg = true;
     //private EndlessRecyclerOnScrollListener mScrollListener = null;
     private SwipeRefreshLayout mSwipeRefreshLayout = null;
@@ -64,7 +64,7 @@ public class Product_page extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        itmcnt = Integer.parseInt(getIntent().getStringExtra("itmcnt"));
+        //itmcnt = Integer.parseInt(getIntent().getStringExtra("itmcnt"));
         //recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
         // enable pull up for endless loading
@@ -138,6 +138,7 @@ public class Product_page extends AppCompatActivity {
                 Glide.with(Product_page.this).load(model.getProductThambImage()).into(myHolder.img);
                 myHolder.prdname.setText(model.getProductName());
                 myHolder.prddesc.setText(model.getProductDiscription1());
+                myHolder.mrp.setText(" ₹."+model.getProductMrp());
                 myHolder.prdprice.setText("₹. "+model.getProductPrice());
                 myHolder.prdwtunit.setText(model.getProductWeight()+" "+model.getUnits());
                 myHolder.prodqty.setText(model.getMinimumQuantity());
@@ -273,7 +274,7 @@ public class Product_page extends AppCompatActivity {
             }
             class Holder extends RecyclerView.ViewHolder {
                 ImageView img,plus,minus;
-                TextView prdname , prddesc, prdwtunit , prdprice,prodqty;
+                TextView prdname , prddesc, prdwtunit , prdprice,prodqty,mrp;
                 CardView addcart;
                 public Holder(@NonNull View itemView) {
                     super(itemView);
@@ -287,6 +288,7 @@ public class Product_page extends AppCompatActivity {
                     prdwtunit = itemView.findViewById(R.id.product_qnt);
                     prodqty = itemView.findViewById(R.id.qty);
                     prdprice = itemView.findViewById(R.id.price);
+                    mrp = itemView.findViewById(R.id.mrp);
                     plus = itemView.findViewById(R.id.plus);
                     minus = itemView.findViewById(R.id.minus);
                     addcart = itemView.findViewById(R.id.addcart);

@@ -39,8 +39,8 @@ public class Home extends AppCompatActivity {
     FloatingActionButton fab;
     Fragment fragment = null;
     ViewDialog progressDialoge;
-    public static final int CONNECTION_TIMEOUT = 10000;
-    public static final int READ_TIMEOUT = 15000;
+    public static final int CONNECTION_TIMEOUT = 60000;
+    public static final int READ_TIMEOUT = 60000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

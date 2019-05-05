@@ -18,10 +18,13 @@
 
         <TextView
             android:id="@+id/prd_name"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textSize="16dp"
+            android:textSize="14dp"
+            android:singleLine="true"
+            android:gravity="center"
+            android:ellipsize="end"
             android:layout_marginTop="@dimen/padding_10"
             android:fontFamily="@font/maiandra_gd_regular"
             />

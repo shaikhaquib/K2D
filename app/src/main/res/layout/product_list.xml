@@ -55,8 +55,20 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/price"
                 android:textSize="16sp"
+                android:fontFamily="@font/maiandra_gd_regular"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimary"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/mrp"
+                android:textSize="12sp"
+                android:layout_marginLeft="5dp"
+                android:textColor="#FF5A5A"
+                android:background="@drawable/strike_through"
+                android:fontFamily="@font/maiandra_gd_regular"
+                android:textStyle="bold"
                 />
             <TextView
                 android:id="@+id/product_qnt"
@@ -64,6 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
+                android:fontFamily="@font/maiandra_gd_regular"
                 android:layout_marginLeft="0dp"
                 android:textAlignment="textEnd"
                 />
@@ -88,6 +101,7 @@
                     android:id="@+id/qty"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/maiandra_gd_regular"
                     />
 
                 <ImageView
@@ -123,6 +137,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="add to cart"
+                    android:fontFamily="@font/maiandra_gd_regular"
                     android:layout_gravity="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />

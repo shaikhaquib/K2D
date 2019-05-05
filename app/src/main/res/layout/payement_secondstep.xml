@@ -88,8 +88,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:drawableTop="@drawable/ic_cod"
-                        android:text="CADH ON DELEVERY"
+                        android:text="CASH ON DELEVERY"
+                        android:fontFamily="@font/maiandra_gd_regular"
                         android:textStyle="bold"
+                        android:singleLine="true"
+                        android:ellipsize="end"
                         android:layout_gravity="center"
                         android:textColor="@color/white"
                         />
@@ -110,6 +113,9 @@
                         android:gravity="center"
                         android:text="CARD PAYMENT"
                         android:textStyle="bold"
+                        android:fontFamily="@font/maiandra_gd_regular"
+                        android:singleLine="true"
+                        android:ellipsize="end"
                         android:layout_gravity="center"
                         android:textColor="#C5C5C5"
                         />
@@ -139,6 +145,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:text="Total Items : "
+                        android:fontFamily="@font/maiandra_gd_regular"
                         android:textColor="@color/pin_normal"
                         android:textStyle="bold"
                         android:layout_weight="5"
@@ -148,6 +155,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/titem"
                         android:gravity="center"
+                        android:fontFamily="@font/maiandra_gd_regular"
                         android:textColor="@color/pin_normal"
                         android:textStyle="bold"
                         android:layout_weight="5"
@@ -164,6 +172,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:text="Total Amount : "
+                        android:fontFamily="@font/maiandra_gd_regular"
                         android:textColor="@color/pin_normal"
                         android:textStyle="bold"
                         android:layout_weight="5"
@@ -173,6 +182,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/total"
                         android:gravity="center"
+                        android:fontFamily="@font/maiandra_gd_regular"
                         android:textColor="@color/pin_normal"
                         android:textStyle="bold"
                         android:layout_weight="5"
@@ -191,6 +201,7 @@
                         android:text="Shipping Charges : "
                         android:textColor="@color/pin_normal"
                         android:textStyle="bold"
+                        android:fontFamily="@font/maiandra_gd_regular"
                         android:layout_weight="5"
                         />
                     <TextView
@@ -198,6 +209,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/shipcost"
                         android:gravity="center"
+                        android:fontFamily="@font/maiandra_gd_regular"
                         android:textColor="@color/pin_normal"
                         android:textStyle="bold"
                         android:layout_weight="5"
@@ -214,6 +226,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:text="Sub Total : "
+                        android:fontFamily="@font/maiandra_gd_regular"
                         android:textColor="@color/pin_normal"
                         android:textStyle="bold"
                         android:layout_weight="5"
@@ -225,6 +238,7 @@
                         android:gravity="center"
                         android:textColor="@color/pin_normal"
                         android:textStyle="bold"
+                        android:fontFamily="@font/maiandra_gd_regular"
                         android:layout_weight="5"
                         />
                 </LinearLayout>
@@ -242,12 +256,14 @@
                     android:layout_height="wrap_content"
                     android:text="Shipping is free for order more than ₹. 500 ."
                     android:gravity="center"
+                    android:fontFamily="@font/maiandra_gd_regular"
                     android:layout_marginTop="10dp"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:id="@+id/timedet"
+                    android:fontFamily="@font/maiandra_gd_regular"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="10dp"/>
 
@@ -262,6 +278,7 @@
         android:gravity="center"
         android:layout_marginTop="30dp"
         android:layout_gravity="center"
+        android:fontFamily="@font/maiandra_gd_regular"
         android:background="@drawable/background"
         android:text="Place Order"
         android:layout_alignParentBottom="true"

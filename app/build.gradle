@@ -3,11 +3,11 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.kirana2door.kiranatodoor"
+        applicationId "com.abatechnology.kirana2door"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 10
-        versionName "2.0"
+        versionCode 12
+        versionName "2.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

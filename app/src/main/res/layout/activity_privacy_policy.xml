@@ -31,6 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/privacypolicy"
+            android:fontFamily="@font/maiandra_gd_regular"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"

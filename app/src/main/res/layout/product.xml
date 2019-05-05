@@ -55,6 +55,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/product_price"
                     android:textSize="16sp"
+                    android:fontFamily="@font/maiandra_gd_regular"
                     android:textStyle="bold"
                     android:textColor="@color/colorPrimary"
                     />
@@ -63,6 +64,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
+                    android:fontFamily="@font/maiandra_gd_regular"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="0dp"
                     android:textAlignment="textEnd"
@@ -90,6 +92,7 @@
                         android:id="@+id/qty"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/maiandra_gd_regular"
                         />
 
 
@@ -121,6 +124,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="Remove"
+                            android:fontFamily="@font/maiandra_gd_regular"
                             android:layout_gravity="center"
                             android:textColor="@color/white"
                             android:textStyle="bold" />

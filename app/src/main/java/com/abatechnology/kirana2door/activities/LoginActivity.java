@@ -71,11 +71,11 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        if (password.length() < 8) {
+        /*if (password.length() < 8) {
             editTextPassword.setError("Password should be atleast 8 character long");
             editTextPassword.requestFocus();
             return;
-        }
+        }*/
         progress.show();
         Call<LoginResponse> call = RetrofitClient
                 .getInstance().getApi().userLogin(email, password);

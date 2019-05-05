@@ -35,6 +35,7 @@
                 android:padding="8dp"
                 android:hint="Search"
                 android:singleLine="true"
+                android:fontFamily="@font/maiandra_gd_regular"
                 android:layout_weight="8"
                 android:id="@+id/SearchBox"
                 android:background="@android:color/transparent"/>

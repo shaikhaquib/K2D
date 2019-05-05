@@ -49,8 +49,8 @@ public class AboutUs extends AppCompatActivity {
                 "to schedule the time of delivery.<br>";
         details.setText(Html.fromHtml(s2));
 
-        s3 = "<b>Gurusharnam Complex, Market Yard Rd, <br>" +
-                "Old Panvel, Panvel, Navi Mumbai, <br>" +
+        s3 = "<b>Sai shivam C.H.S, plot-d/33, unit-01, sector-06, <br>" +
+                "new panvel (E), panvel, Navi Mumbai, <br>" +
                 "Maharashtra 410206.<br></b>";
 
         add.setText(Html.fromHtml(s3));

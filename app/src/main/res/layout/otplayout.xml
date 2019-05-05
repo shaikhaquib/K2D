@@ -21,6 +21,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="191dp"
         android:gravity="center"
+        android:fontFamily="@font/maiandra_gd_regular"
         android:text="Enter OTP"
         android:textSize="20sp"
         android:textStyle="bold|normal" />
@@ -32,6 +33,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="0dp"
         android:gravity="center"
+        android:fontFamily="@font/maiandra_gd_regular"
         android:text="we have sent you verification code"
         android:textSize="16sp" />
 
@@ -46,6 +48,7 @@
         android:cursorVisible="false"
         android:gravity="center"
         android:maxLength="4"
+        android:fontFamily="@font/maiandra_gd_regular"
         android:padding="35dp"
         app:pinAnimationType="popIn"
         android:id="@+id/pinView"
@@ -63,6 +66,7 @@
         android:layout_marginBottom="96dp"
         android:background="@drawable/background"
         android:gravity="center"
+        android:fontFamily="@font/maiandra_gd_regular"
         android:id="@+id/chkotp"
         android:onClick="CheckOTP"
         android:text="SUBMIT"
@@ -79,6 +83,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:fontFamily="@font/maiandra_gd_regular"
             android:textSize="16sp"
             android:text="Didn't Receive OTP ?"/>
         <TextView
@@ -86,6 +91,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:id="@+id/resendlink"
+            android:fontFamily="@font/maiandra_gd_regular"
             android:onClick="ReSendOTP"
             android:textColor="@color/colorPrimary"
             android:text="Resend Code"/>

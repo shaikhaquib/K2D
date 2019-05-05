@@ -84,6 +84,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:textSize="@dimen/dimen_16"
+                            android:fontFamily="@font/maiandra_gd_regular"
                             android:layout_gravity="center"
                             android:textColor="@color/colorPrimary"
                             android:textStyle="bold" />

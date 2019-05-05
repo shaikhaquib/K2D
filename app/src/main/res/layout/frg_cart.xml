@@ -39,6 +39,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="16dp"
+                    android:fontFamily="@font/maiandra_gd_regular"
                     android:background="@drawable/background"
                     android:id="@+id/addmore"
                     android:text="ADD MORE"
@@ -73,7 +74,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="70sp"
-
+                android:fontFamily="@font/maiandra_gd_regular"
                 android:textColor="@color/colorPrimary"
                 android:text="?"/>
 
@@ -109,6 +110,7 @@
                 android:layout_alignParentRight="true"
                 android:background="@drawable/background"
                 android:text="ADD ITEM"
+                android:fontFamily="@font/maiandra_gd_regular"
                 android:layout_marginTop="@dimen/dimen_16"
                 android:textColor="@color/white" />
 

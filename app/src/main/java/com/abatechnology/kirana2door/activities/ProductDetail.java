@@ -37,7 +37,7 @@ import java.util.Map;
 
 public class ProductDetail extends AppCompatActivity {
 
-    TextView title , desription,description2 , wtut,price ,quantity ;
+    TextView title , desription,description2 , wtut,price ,quantity,mrp ;
     ImageView minus ,plus;
     String minimum_quantity,amount ,unit ,s ;
     String[] imagearray ;
@@ -65,6 +65,7 @@ public class ProductDetail extends AppCompatActivity {
         minus =findViewById(R.id.minus);
         plus = findViewById(R.id.plus);
         title =findViewById(R.id.pname);
+        mrp =findViewById(R.id.mrp);
         addtocart =findViewById(R.id.addtocart);
         desription = findViewById(R.id.compname);
         description2=findViewById(R.id.descpn);
@@ -227,6 +228,7 @@ public class ProductDetail extends AppCompatActivity {
                 proddet = res.getProductDetails();
                 ProductDetailsItem pdi = proddet.get(0);
                 title.setText(pdi.getProductName());
+                mrp.setText(" ₹. "+pdi.getProductMrp());
                 desription.setText(pdi.getProductDiscription1());
                 description2.setText(pdi.getProductDiscription2());
                 quantity.setText(pdi.getMinimumQuantity());

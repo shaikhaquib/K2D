@@ -39,6 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:fontFamily="@font/maiandra_gd_regular"
                 android:id="@+id/shopname"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -47,6 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/ownername"
+                android:fontFamily="@font/maiandra_gd_regular"
                 android:textSize="@dimen/font_15sp" />
 
             <TextView
@@ -54,6 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/font_10sp"
                 android:id="@+id/timing"
+                android:fontFamily="@font/maiandra_gd_regular"
                 android:textSize="@dimen/dimen_16"
                 android:padding="12dp"
                 android:background="@drawable/border"/>
@@ -76,6 +79,7 @@
                     android:drawablePadding="@dimen/font_10sp"
                     android:drawableLeft="@drawable/ic_closed_envelope_shape"
                     android:layout_weight="8"
+                    android:fontFamily="@font/maiandra_gd_regular"
                     android:paddingLeft="8dp"
                     android:id="@+id/email"
                     android:enabled="false"
@@ -91,6 +95,7 @@
                     android:padding="10dp"
                     android:gravity="center"
                     android:id="@+id/sendmail"
+                    android:fontFamily="@font/maiandra_gd_regular"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:text="MAIL"
@@ -121,6 +126,7 @@
                     android:layout_height="wrap_content"
                     android:padding="@dimen/dimen_16"
                     android:gravity="center"
+                    android:fontFamily="@font/maiandra_gd_regular"
                     android:id="@+id/comadd"
                     android:background="#90E6E8EE"/>
             </LinearLayout>

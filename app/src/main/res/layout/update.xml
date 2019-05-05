@@ -96,7 +96,7 @@
         android:id="@+id/updateappbtn"
         android:background="@drawable/round_gradient"
         android:gravity="center"
-
+        android:fontFamily="@font/maiandra_gd_regular"
         android:text="UPDATE NOW"
         android:textColor="@color/white"
         android:textStyle="bold" />

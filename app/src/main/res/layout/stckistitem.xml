@@ -47,6 +47,7 @@
             android:id="@+id/pin"
             android:drawableLeft="@drawable/ic_maps_and_flags"
             android:drawablePadding="2dp"
+            android:fontFamily="@font/maiandra_gd_regular"
             android:gravity="center"
             android:textStyle="bold"
             />
@@ -62,6 +63,7 @@
         android:backgroundTint="@color/colorPrimary"
         android:layout_gravity="bottom"
         android:id="@+id/stname"
+        android:fontFamily="@font/maiandra_gd_regular"
         android:gravity="center"
         android:textSize="@dimen/dimen_16"
         android:textStyle="bold"

@@ -41,8 +41,8 @@ import retrofit2.Response;
 
 public class PaymentActivity extends AppCompatActivity {
 
-    public static final int CONNECTION_TIMEOUT = 10000;
-    public static final int READ_TIMEOUT = 15000;
+    public static final int CONNECTION_TIMEOUT = 60000;
+    public static final int READ_TIMEOUT = 60000;
     TextView titem,total,shopcst,subttl,timedet;
     Button placeorder;
     ImageView backbtn;

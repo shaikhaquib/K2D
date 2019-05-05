@@ -152,6 +152,7 @@
                     android:layout_marginTop="40dp"
                     android:background="@drawable/border"
                     android:text="Logout"
+                    android:fontFamily="@font/maiandra_gd_regular"
                     android:id="@+id/logout"
                     android:textStyle="bold"
                     android:textColor="@color/colorPrimary"

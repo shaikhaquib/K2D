@@ -101,8 +101,9 @@ public class PrivacyPolicy extends AppCompatActivity {
                 "Alternatively, you may contact the Company to correct or update such information by sending an e-mail to: " +
                 "<b>info@kirana2door.com</b>. In the event of loss of access to the website, you may contact the Company by sending " +
                 "an e-mail to: <b>info@kirana2door.com</b>. <br><br>In the event you wish to report a breach of the Privacy Policy, you may " +
-                "contact the designated Grievance Officer of the Company at:<br><br> <b>Gurusharnam Complex, Market Yard Rd, <br>  Old Panvel, " +
-                "Panvel, Navi Mumbai,<br>   Maharashtra 410206.</b><br> Email address: <b>info@kirana2door.com</b> </p>";
+                "contact the designated Grievance Officer of the Company at:<br><br> <b>Sai shivam C.H.S, plot-d/33, unit-01, sector-06, <br>" +
+                "new panvel (E), panvel, Navi Mumbai, <br>   Maharashtra 410206.</b><br> Email address: <b>info@kirana2door.com</b> </p>";
+
 
         policy.setText(Html.fromHtml(htmlstring));
     }
